@@ -29,29 +29,15 @@ export function IntakeForm() {
     const formEl = e.currentTarget;
     try {
       const formData = new FormData(formEl);
-      // Netlify Forms requires form-encoded body with form-name field
-      const params = new URLSearchParams();
-      params.append("form-name", "intake");
-      formData.forEach((value, key) => {
-        if (typeof value === "string") params.append(key, value);
-      });
-      const res = await fetch("/", {
+      const payload = Object.fromEntries(formData.entries());
+      const res = await fetch("/api/intake", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: params.toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
       if (!res.ok) {
-        // Fall back to /api/intake (e.g. local dev where Netlify Forms isn't running)
-        const apiPayload = Object.fromEntries(formData.entries());
-        const fallback = await fetch("/api/intake", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(apiPayload),
-        });
-        if (!fallback.ok) {
-          const data = await fallback.json().catch(() => ({}));
-          throw new Error(data?.message || "Something didn't send.");
-        }
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.message || "Something didn't send.");
       }
       setStatus("success");
       formEl.reset();
