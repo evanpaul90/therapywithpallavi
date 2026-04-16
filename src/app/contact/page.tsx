@@ -11,6 +11,20 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      {/*
+        Static form for Netlify Forms detection. Hidden from users.
+        Netlify scans the build output for forms with data-netlify;
+        the React IntakeForm posts to / with form-name=intake at runtime.
+      */}
+      <form name="intake" data-netlify="true" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="whatsapp" />
+        <textarea name="reason" />
+        <input type="text" name="prior" />
+        <input type="text" name="time" />
+        <textarea name="other" />
+      </form>
       <section className="bg-cream">
         <div className="mx-auto max-w-[var(--content-max)] px-6 md:px-10 py-20 md:py-32">
           <FadeIn>
