@@ -41,13 +41,39 @@ function renderParagraphs(body: string) {
   });
 }
 
+const SITE_URL = "https://therapywithpallavi.com";
+
 export default async function PostPage({ params }: Params) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) notFound();
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Person",
+      name: "Pallavi Bhaskar",
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Pallavi Bhaskar",
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/journal/${post.slug}` },
+    image: `${SITE_URL}/assets/og-image.jpg`,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <article className="bg-cream">
         <div className="mx-auto max-w-[var(--content-max)] px-6 md:px-10 py-20 md:py-28">
           <FadeIn>
@@ -73,7 +99,7 @@ export default async function PostPage({ params }: Params) {
       <section className="bg-cream">
         <div className="mx-auto px-6 md:px-10 py-16 md:py-24">
           <div
-            className="prose-section text-[19px] text-ink leading-[1.75]"
+            className="prose-section journal-prose text-[19px] text-ink leading-[1.75]"
             style={{ fontFamily: "var(--font-body)" }}
           >
             {renderParagraphs(post.body)}

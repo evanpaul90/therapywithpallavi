@@ -344,6 +344,19 @@ body {
   animation: fill-fade 600ms ease-out both;
 }
 
+/* ===== Journal post drop cap ===== */
+
+.journal-prose > p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  float: left;
+  font-size: 5.2em;
+  line-height: 0.85;
+  padding: 0.05em 0.12em 0 0;
+  margin-top: 0.05em;
+  color: var(--color-navy);
+  font-weight: 500;
+}
+
 /* ===== Pull-quote ochre underline draw ===== */
 
 @keyframes underline-draw {

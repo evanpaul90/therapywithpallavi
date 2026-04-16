@@ -3,6 +3,7 @@ import { EB_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { ScrollProgress } from "@/components/scroll-progress";
 
 const ebGaramond = EB_Garamond({
   variable: "--font-eb-garamond",
@@ -126,6 +127,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <ScrollProgress />
         <SiteNav />
         <main className="flex-1">{children}</main>
         <SiteFooter />
