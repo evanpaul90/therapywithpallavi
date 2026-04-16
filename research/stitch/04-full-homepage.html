@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..500;1,400..500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2f6b78",
+              "secondary": "#7fb8a5",
+              "accent": "#c8a96b",
+              "navy": "#1a2e3a",
+              "ink": "#2a2e33",
+              "muted": "#6c7278",
+              "divider": "#e5e2dc",
+              "cream": "#fafaf7"
+            },
+            borderRadius: {
+              "DEFAULT": "0.125rem",
+              "lg": "0.25rem",
+              "xl": "0.5rem",
+              "full": "0.75rem",
+              "ROUND_FOUR": "4px"
+            },
+            fontFamily: {
+              "headline": ["EB Garamond", "serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fafaf7;
+            color: #2a2e33;
+            -webkit-font-smoothing: antialiased;
+        }
+        .prose-container {
+            max-width: 680px;
+        }
+        .emblem-mask {
+            mask-image: url('image-tree-of-life-silhouette'); /* Placeholder for mask logic if needed */
+            mask-size: contain;
+        }
+    </style>
+</head>
+<body class="font-body text-[18px] leading-[1.65]">
+<!-- TopNavBar -->
+<nav class="bg-[#fafaf7] dark:bg-slate-950 border-b border-[#e5e2dc] dark:border-slate-800 sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-6 py-8 max-w-[1440px] mx-auto">
+<a class="font-['EB_Garamond'] text-2xl font-medium text-[#1a2e3a] dark:text-[#fafaf7] tracking-tight flex items-center gap-3" href="/">
+<div class="w-8 h-8 bg-[#2f6b78] rounded-full flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-overlay opacity-80" data-alt="Stylized teal tree of life silhouette logo inside a circle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsyu1Bg6Qp5FlOm_Suu2fiEkEt_oyUQpYul8_aF329oohMDM_xh4iInBeRmbIWwb2yEALyV9mZqWau2-1jqJo8XrDUE453RbjKEtpooabWgqe0We7bCsSuubhynVKHdIJWskCTsO4U52FFVgH01mXCg6xCY4I44K756oI0rpQD2UjDHx2aliSdfnD2mVpqBJzCmBWVguvUX_b880LYnwnW53VIVcxYh-cHOoTtkNJKPlDfLek_iosuZowr96OBbcBVwq5axWI-rA"/>
+</div>
+                Pallavi Bhaskar
+            </a>
+<div class="hidden md:flex gap-10">
+<a class="text-[#2f6b78] dark:text-[#7fb8a5] border-b border-[#2f6b78] pb-1 font-['Inter'] font-medium uppercase text-[13px] tracking-[0.12em] transition-colors duration-150 ease-out" href="#">Home</a>
+<a class="text-[#6c7278] dark:text-slate-400 font-['Inter'] font-medium uppercase text-[13px] tracking-[0.12em] hover:text-[#1a2e3a] dark:hover:text-white transition-colors duration-150 ease-out" href="#">About</a>
+<a class="text-[#6c7278] dark:text-slate-400 font-['Inter'] font-medium uppercase text-[13px] tracking-[0.12em] hover:text-[#1a2e3a] dark:hover:text-white transition-colors duration-150 ease-out" href="#">How I Work</a>
+<a class="text-[#6c7278] dark:text-slate-400 font-['Inter'] font-medium uppercase text-[13px] tracking-[0.12em] hover:text-[#1a2e3a] dark:hover:text-white transition-colors duration-150 ease-out" href="#">Journal</a>
+<a class="text-[#6c7278] dark:text-slate-400 font-['Inter'] font-medium uppercase text-[13px] tracking-[0.12em] hover:text-[#1a2e3a] dark:hover:text-white transition-colors duration-150 ease-out" href="#">Contact</a>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-[#2f6b78]" data-icon="menu">menu</span>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="py-[120px] md:py-[160px] px-6 max-w-[1440px] mx-auto relative overflow-hidden">
+<div class="grid md:grid-cols-12 gap-12 items-start">
+<div class="md:col-span-8">
+<h1 class="font-headline text-[56px] md:text-[72px] leading-[1.05] text-navy tracking-[0.005em] mb-8">
+                    Therapy for the ambitious life you're quietly exhausted by.
+                </h1>
+<div class="prose-container">
+<p class="text-muted text-[20px] leading-[1.6] mb-12">
+                        Evidence-based psychotherapy for high-performing professionals in unquiet seasons. IFS · CBT · Trauma-informed. Bangalore-based, online globally.
+                    </p>
+<a class="inline-block bg-[#2f6b78] text-white px-8 py-4 rounded-[4px] font-medium text-[14px] hover:bg-[#255560] transition-colors duration-150" href="#">
+                        Book a free 15-minute consultation →
+                    </a>
+</div>
+</div>
+<div class="md:col-span-4 flex justify-end md:mt-[200px]">
+<div class="w-48 h-48 md:w-64 md:h-64 relative">
+<img class="w-full h-full object-contain opacity-20" data-alt="Abstract minimalist teal graphic of a flourishing tree of life with intricate roots and branches on cream paper texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBiRIWYWFUzkJyO4-1rFsAtqHKST1rDBKRwRGZqB1UMzDVC9u4X6itJlde86El7wZWU9b2jqPqm4NhDgbjiapqmrKJBJOxKpUpv3gmUcoXLoQ_ChYF-hReXeiswPxolU7LiQnGw8JsMMh8RRfqJijXGWTHHISj01XZ2PNJ61gIMBmdKiWWA64QPYGXz6ht9ptiZm7RIRgFL-9Y3Vygqkod0CjKVTBiLO6AVs44Sq4JacMQHKeIhqJZeZO-X77YPl7WuYd9D2R6ZQ"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Who I Work With -->
+<section class="py-[120px] md:py-[160px] px-6 bg-cream border-t border-divider">
+<div class="max-w-[1440px] mx-auto">
+<div class="mb-12">
+<span class="font-label text-[13px] font-semibold text-muted uppercase tracking-[0.12em]">Who I work with</span>
+</div>
+<div class="grid md:grid-cols-12">
+<div class="md:col-span-10 lg:col-span-8">
+<h2 class="font-headline text-[36px] md:text-[48px] leading-[1.15] text-navy mb-16">
+                        The clients who find me tend to arrive at a similar crossroads.
+                    </h2>
+<div class="prose-container space-y-8 text-ink">
+<p>You have built a life that looks remarkable from the outside. The achievements are real, the trajectory is enviable, and you have become the person everyone relies on for stability and solutions.</p>
+<p>But internally, the weight of maintaining this performance has become a silent tax. Perhaps you are experiencing a persistent restlessness that achievement no longer soothes, or a sudden fragility in relationships that once felt manageable.</p>
+<p>I work with individuals who are accustomed to high levels of agency but find themselves facing internal landscapes—grief, burnout, relational patterns, or existential dread—that cannot be "optimized" away or solved with the usual strategies of discipline.</p>
+<p>Our work together is about creating a space where you do not have to perform. It is about understanding the architecture of your inner life and finding a more sustainable, authentic way to inhabit the world you've built.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About -->
+<section class="py-[120px] md:py-[160px] px-6">
+<div class="max-w-[1440px] mx-auto grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
+<div class="relative aspect-[4/5] bg-divider overflow-hidden rounded-[4px]">
+<img class="w-full h-full object-cover grayscale-[20%]" data-alt="Professional editorial portrait of a woman in her 40s with a thoughtful expression, soft natural window lighting, warm professional environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiMKe5QFLugoY_ulaf7oUO6GPpMHmeZq_fKIbIsC_YAA2d46kpQQy2XY2TId-R74lvI6STyhexLqKTKRBEBUnOAzNViETl8uMKCuFKjuejFXZ1nzAI6KEd6Q9Wq2d5wUEE02D00Bcoscmb2gD2Wi1oJ9OBRhrbqPK2PYkB-MtRPmIEqG9hhZFAhkHziAxDsb6UdPc8SABWPGKiH4K2uAjk3LPr6K3pa8sCRDDrUMikAeq7g-Ctrua6FYFxlkbMsMQxGfL7I8YMPw"/>
+</div>
+<div>
+<span class="font-label text-[13px] font-semibold text-muted uppercase tracking-[0.12em] block mb-8">About</span>
+<h2 class="font-headline text-[36px] md:text-[48px] leading-[1.15] text-navy mb-8">
+                    I work at the intersection of inner life and the world you perform in.
+                </h2>
+<div class="space-y-6 text-ink mb-12">
+<p>I am a psychotherapist focused on the unique psychological pressures of high-stakes environments. My background integrates traditional clinical training with a deep appreciation for the complexities of modern professional life.</p>
+<p>I don't offer generic wellness advice. Instead, I provide a rigorous, evidence-based container for exploring the parts of yourself that have been sidelined in the service of productivity and success.</p>
+<p>By blending Internal Family Systems (IFS) with Cognitive Behavioural frameworks, we address both immediate relief and long-term structural change in your psyche.</p>
+</div>
+<a class="text-primary font-medium border-b border-transparent hover:border-primary transition-all duration-150 inline-block" href="#">
+                    Read more about how I work →
+                </a>
+</div>
+</div>
+</section>
+<!-- What We Can Work On (Bento-ish Typographic Grid) -->
+<section class="py-[120px] md:py-[160px] px-6 bg-cream border-t border-divider">
+<div class="max-w-[1440px] mx-auto">
+<div class="mb-12">
+<span class="font-label text-[13px] font-semibold text-muted uppercase tracking-[0.12em]">Areas of work</span>
+</div>
+<h2 class="font-headline text-[36px] md:text-[48px] leading-[1.15] text-navy mb-4">What we can work on together.</h2>
+<p class="font-headline italic text-muted text-2xl mb-20">These aren't separate things. They pressurise each other.</p>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 border-t border-divider pt-12">
+<div class="space-y-6">
+<h3 class="font-headline italic text-2xl text-primary">The inner weather</h3>
+<p class="text-[16px] leading-relaxed text-ink">Anxiety that feels like a constant hum, the specific exhaustion of burnout, and the persistent inner critic that fuels achievement but drains joy.</p>
+</div>
+<div class="space-y-6">
+<h3 class="font-headline italic text-2xl text-primary">The relational work</h3>
+<p class="text-[16px] leading-relaxed text-ink">Understanding attachment patterns, setting boundaries that actually hold, and navigating the isolation that often accompanies leadership.</p>
+</div>
+<div class="space-y-6">
+<h3 class="font-headline italic text-2xl text-primary">What we carry quietly</h3>
+<p class="text-[16px] leading-relaxed text-ink">Unprocessed trauma, the long shadow of family expectations, and the grief we haven't given ourselves permission to name.</p>
+</div>
+<div class="space-y-6">
+<h3 class="font-headline italic text-2xl text-primary">The hinges of a life</h3>
+<p class="text-[16px] leading-relaxed text-ink">Career transitions, existential pivots, and finding meaning when the goals you reached don't feel like you thought they would.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- How Sessions Work -->
+<section class="py-[120px] md:py-[160px] px-6">
+<div class="max-w-[1440px] mx-auto">
+<div class="mb-12">
+<span class="font-label text-[13px] font-semibold text-muted uppercase tracking-[0.12em]">The Practice</span>
+</div>
+<h2 class="font-headline text-[36px] md:text-[48px] leading-[1.15] text-navy mb-16">How sessions work.</h2>
+<div class="border-t border-divider">
+<div class="grid md:grid-cols-4 py-8 border-b border-divider items-baseline">
+<span class="font-label text-[12px] uppercase tracking-widest text-muted">Format</span>
+<div class="md:col-span-3 text-ink">Video sessions via Secure Platform or in-person at Indiranagar, Bangalore.</div>
+</div>
+<div class="grid md:grid-cols-4 py-8 border-b border-divider items-baseline">
+<span class="font-label text-[12px] uppercase tracking-widest text-muted">Cadence</span>
+<div class="md:col-span-3 text-ink">Weekly sessions are recommended for consistency, though bi-weekly is available for maintenance phases.</div>
+</div>
+<div class="grid md:grid-cols-4 py-8 border-b border-divider items-baseline">
+<span class="font-label text-[12px] uppercase tracking-widest text-muted">Fees</span>
+<div class="md:col-span-3 text-ink">INR 4,500 / USD 120 per clinical hour. A sliding scale is available for students and non-profits.</div>
+</div>
+<div class="grid md:grid-cols-4 py-8 border-b border-divider items-baseline">
+<span class="font-label text-[12px] uppercase tracking-widest text-muted">Cancellation</span>
+<div class="md:col-span-3 text-ink">24-hour notice required to avoid the full session fee. Respecting time is part of the therapeutic frame.</div>
+</div>
+</div>
+<p class="mt-8 font-headline italic text-muted text-lg">Initial consultations are focused on fit and alignment. There is no obligation to continue.</p>
+</div>
+</section>
+<!-- Journal Preview -->
+<section class="py-[120px] md:py-[160px] px-6 bg-cream border-t border-divider">
+<div class="max-w-[1440px] mx-auto">
+<div class="mb-12">
+<span class="font-label text-[13px] font-semibold text-muted uppercase tracking-[0.12em]">Journal</span>
+</div>
+<h2 class="font-headline text-[36px] md:text-[48px] leading-[1.15] text-navy mb-20">Recent writing.</h2>
+<div class="grid md:grid-cols-3 gap-12 lg:gap-16">
+<!-- Card 1 -->
+<article class="group">
+<div class="font-label text-[12px] uppercase tracking-widest text-muted mb-4">October 24, 2023</div>
+<h3 class="font-headline text-2xl text-navy mb-4 group-hover:text-primary transition-colors">The High-Functioning Myth</h3>
+<p class="text-[16px] text-ink line-clamp-3 mb-6">Why our capacity to "push through" often becomes the very thing that prevents our healing, and how to identify the subtle signs of cognitive overload.</p>
+<a class="text-[14px] font-medium text-primary uppercase tracking-wider border-b border-primary pb-1" href="#">Read →</a>
+</article>
+<!-- Card 2 -->
+<article class="group">
+<div class="font-label text-[12px] uppercase tracking-widest text-muted mb-4">September 12, 2023</div>
+<h3 class="font-headline text-2xl text-navy mb-4 group-hover:text-primary transition-colors">Quiet Ambition</h3>
+<p class="text-[16px] text-ink line-clamp-3 mb-6">Redefining success when the traditional metrics of growth start to feel hollow. Finding a center that doesn't rely on external validation.</p>
+<a class="text-[14px] font-medium text-primary uppercase tracking-wider border-b border-primary pb-1" href="#">Read →</a>
+</article>
+<!-- Card 3 -->
+<article class="group">
+<div class="font-label text-[12px] uppercase tracking-widest text-muted mb-4">August 05, 2023</div>
+<h3 class="font-headline text-2xl text-navy mb-4 group-hover:text-primary transition-colors">Internal Family Systems</h3>
+<p class="text-[16px] text-ink line-clamp-3 mb-6">A brief introduction to the parts-work model and why it is particularly effective for resolving deep-seated internal conflicts.</p>
+<a class="text-[14px] font-medium text-primary uppercase tracking-wider border-b border-primary pb-1" href="#">Read →</a>
+</article>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-[120px] md:py-[180px] px-6 bg-white border-t border-divider">
+<div class="max-w-[1440px] mx-auto text-center">
+<h1 class="font-headline text-[48px] md:text-[64px] leading-tight text-navy mb-8">
+                A free 15 minutes. That's the first step.
+            </h1>
+<div class="max-w-[600px] mx-auto mb-12">
+<p class="text-ink text-lg">Finding the right therapist is a decision of both intuition and logic. Let's talk briefly to see if my approach aligns with what you are seeking.</p>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-center gap-8">
+<a class="bg-primary text-white px-10 py-5 rounded-[4px] font-medium text-[15px] hover:bg-[#255560] transition-colors" href="#">
+                    Book a consultation on WhatsApp →
+                </a>
+<a class="text-muted hover:text-navy transition-colors font-medium border-b border-divider hover:border-navy pb-1 text-[15px]" href="#">
+                    or fill a short intake form
+                </a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#fafaf7] dark:bg-slate-950 border-t border-[#e5e2dc] dark:border-slate-800">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full px-8 py-24 max-w-[1440px] mx-auto">
+<div>
+<p class="font-['EB_Garamond'] italic text-xl text-[#2f6b78] mb-6">Pallavi Bhaskar</p>
+<div class="font-['Inter'] text-[15px] leading-relaxed text-[#6c7278] dark:text-slate-500 space-y-4">
+<p>MSc. Clinical Psychology<br/>Certified IFS Therapist<br/>Trauma-Informed Practice</p>
+<p class="text-[13px] uppercase tracking-widest mt-8">© Pallavi Bhaskar. All rights reserved.</p>
+</div>
+</div>
+<div class="space-y-6">
+<p class="font-['Inter'] font-semibold text-[13px] uppercase tracking-[0.12em] text-[#1a2e3a] dark:text-white">Navigation</p>
+<ul class="font-['Inter'] text-[15px] space-y-3">
+<li><a class="text-[#6c7278] dark:text-slate-500 hover:underline decoration-[#2f6b78] transition-all" href="#">Home</a></li>
+<li><a class="text-[#6c7278] dark:text-slate-500 hover:underline decoration-[#2f6b78] transition-all" href="#">About</a></li>
+<li><a class="text-[#6c7278] dark:text-slate-500 hover:underline decoration-[#2f6b78] transition-all" href="#">How I Work</a></li>
+<li><a class="text-[#6c7278] dark:text-slate-500 hover:underline decoration-[#2f6b78] transition-all" href="#">Journal</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<p class="font-['Inter'] font-semibold text-[13px] uppercase tracking-[0.12em] text-[#1a2e3a] dark:text-white">Connect</p>
+<ul class="font-['Inter'] text-[15px] space-y-3">
+<li><a class="text-[#6c7278] dark:text-slate-500 hover:underline decoration-[#2f6b78] transition-all" href="#">Instagram</a></li>
+<li><a class="text-[#6c7278] dark:text-slate-500 hover:underline decoration-[#2f6b78] transition-all" href="#">LinkedIn</a></li>
+<li><a class="text-[#6c7278] dark:text-slate-500 hover:underline decoration-[#2f6b78] transition-all" href="#">Email Pallavi</a></li>
+</ul>
+<div class="pt-8 flex justify-start">
+<div class="w-8 h-8 opacity-40">
+<img class="w-full h-full object-contain grayscale" data-alt="Small circular teal emblem of a tree" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbdi_DjOoaIutOWBAbHWUViWfvBM8sMxl1dndzQH1gFfuNKfxyL1IbKTCXG7sgFeC8XwJeZgbvOJM6hYUn_67dERw8Sa2rX-KMst4n_GAXK5HeDO4SgwEWT5bDxw4NqV5EaTVEiUI4awL-JQmTxSKUqJqSfTc1vgcAuKLC46UiRCaNY4G8irWGn2lSTZ--uWEJe2zi4JZI2UVOfs3dZsDbtKn2b9n9U4A-qUQboL8s-n30_ZubEC_SezWHFXfzb9aUrezwdbrKSw"/>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

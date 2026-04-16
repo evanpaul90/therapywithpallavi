@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# therapywithpallavi.com
 
-## Getting Started
+Website for **Pallavi Bhaskar**, counsellor and psychotherapist (Bangalore · online globally).
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router) + React 19
+- Tailwind CSS 4
+- Framer Motion (installed; current animation is CSS-driven for SSR/SEO safety)
+- TypeScript strict
+- Deployed on Netlify (Phase 8)
+- TinaCMS for inline content editing (Phase 7 — pending)
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev    # http://localhost:3000
+npm run typecheck
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/                  # App Router pages
+    page.tsx            # Home (assembles all home sections)
+    about/              # /about
+    how-i-work/         # /how-i-work
+    contact/            # /contact (intake form)
+    journal/            # /journal + /journal/[slug]
+    terms/              # /terms
+    api/intake/         # POST endpoint for the contact form
+  components/
+    site-nav.tsx
+    site-footer.tsx
+    tree-emblem.tsx
+    fade-in.tsx
+    intake-form.tsx
+    home/               # Section components for the homepage
+  lib/
+    posts.ts            # Journal post data (will move to TinaCMS in Phase 7)
+public/
+  assets/               # Brand assets (portrait, emblem, og image)
+research/               # Phase 1-3 deliverables — site audit, brand, copy deck
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design system
 
-## Learn More
+Documented in `research/phase-2-brand.md` and reflected in `src/app/globals.css`:
 
-To learn more about Next.js, take a look at the following resources:
+- **Display:** EB Garamond (Google Fonts via next/font)
+- **Body:** Inter
+- **Palette:** cream `#fafaf7` background · deep teal `#2f6b78` primary · sage · ochre · navy
+- **Mood:** editorial-literary — Aeon, NYRB, Rizzoli. No wellness-app aesthetic.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Strict guardrails (banned phrases, banned visual patterns) live in `research/phase-2-brand.md`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Content editing
 
-## Deploy on Vercel
+Today: edit `src/lib/posts.ts` for journal entries; edit copy directly in component files.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Phase 7 will wire TinaCMS so Pallavi can edit inline at `/admin` without touching code.
