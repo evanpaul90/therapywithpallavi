@@ -6,12 +6,13 @@ import { useState } from "react";
 import { clsx } from "clsx";
 import { TreeEmblem } from "./tree-emblem";
 
-const NAV_LINKS = [
+type NavLink = { href: string; label: string; primary?: boolean };
+
+const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/how-i-work", label: "How I Work" },
-  { href: "/journal", label: "Journal" },
-  { href: "/contact", label: "Contact" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/book", label: "Book", primary: true },
 ];
 
 export function SiteNav() {
@@ -27,30 +28,48 @@ export function SiteNav() {
         <div className="flex items-center justify-between h-[72px]">
           <Link href="/" className="flex items-center gap-3 group">
             <TreeEmblem size={32} alt="" />
-            <span className="font-[var(--font-display)] text-[18px] tracking-wide text-navy group-hover:text-teal transition-colors">
-              Pallavi Bhaskar
+            <span className="font-[var(--font-display)] text-[18px] tracking-wide text-navy group-hover:opacity-80 transition-opacity">
+              Therapy with Pallavi
             </span>
           </Link>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={clsx(
-                  "text-[14px] tracking-wide transition-colors",
-                  isActive(link.href)
-                    ? "text-teal"
-                    : "text-ink hover:text-teal",
-                )}
-              >
-                {link.label}
-                {isActive(link.href) && (
-                  <span className="block h-px bg-sage mt-1 -mb-px" />
-                )}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.primary ? (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 text-[13px] tracking-wide rounded-sm text-white transition-opacity hover:opacity-90"
+                  style={{ background: "var(--color-sage-deep)" }}
+                >
+                  {link.label}
+                  <span aria-hidden="true">&rarr;</span>
+                </Link>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={clsx(
+                    "text-[14px] tracking-wide transition-colors",
+                    isActive(link.href) ? "" : "text-ink",
+                  )}
+                  style={
+                    isActive(link.href)
+                      ? { color: "var(--color-sage-deep)" }
+                      : undefined
+                  }
+                >
+                  {link.label}
+                  {isActive(link.href) && (
+                    <span
+                      className="block h-px mt-1 -mb-px"
+                      style={{ background: "var(--color-sage-deep)" }}
+                    />
+                  )}
+                </Link>
+              ),
+            )}
           </nav>
 
           {/* Mobile toggle */}
@@ -92,12 +111,23 @@ export function SiteNav() {
                 <Link
                   href={link.href}
                   className={clsx(
-                    "block font-[var(--font-display)] text-[28px] leading-tight",
-                    isActive(link.href) ? "text-teal" : "text-navy",
+                    "block font-[var(--font-display)] leading-tight",
+                    link.primary ? "text-[26px]" : "text-[28px]",
+                    isActive(link.href) || link.primary ? "" : "text-navy",
                   )}
+                  style={
+                    isActive(link.href) || link.primary
+                      ? { color: "var(--color-sage-deep)" }
+                      : undefined
+                  }
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
+                  {link.primary && (
+                    <span className="ml-2" aria-hidden="true">
+                      &rarr;
+                    </span>
+                  )}
                 </Link>
               </li>
             ))}
