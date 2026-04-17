@@ -11,6 +11,9 @@ type NavLink = { href: string; label: string; primary?: boolean };
 const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/how-it-works", label: "How it works" },
+  { href: "/pathways", label: "Pathways" },
+  { href: "/journal", label: "Journal" },
   { href: "/faq", label: "FAQ" },
   { href: "/book", label: "Book", primary: true },
 ];
@@ -26,15 +29,18 @@ export function SiteNav() {
     <header className="border-b border-divider bg-cream sticky top-0 z-40 backdrop-blur-sm bg-cream/85">
       <div className="mx-auto max-w-[var(--content-max)] px-6 md:px-10">
         <div className="flex items-center justify-between h-[72px]">
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group shrink-0">
             <TreeEmblem size={32} alt="" />
-            <span className="font-[var(--font-display)] text-[18px] tracking-wide text-navy group-hover:opacity-80 transition-opacity">
+            <span className="font-[var(--font-display)] text-[18px] tracking-wide text-navy group-hover:opacity-80 transition-opacity hidden sm:inline">
               Therapy with Pallavi
+            </span>
+            <span className="font-[var(--font-display)] text-[18px] tracking-wide text-navy sm:hidden">
+              Pallavi
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {NAV_LINKS.map((link) =>
               link.primary ? (
                 <Link
@@ -51,7 +57,7 @@ export function SiteNav() {
                   key={link.href}
                   href={link.href}
                   className={clsx(
-                    "text-[14px] tracking-wide transition-colors",
+                    "text-[13px] xl:text-[14px] tracking-wide transition-colors",
                     isActive(link.href) ? "" : "text-ink",
                   )}
                   style={
@@ -77,7 +83,7 @@ export function SiteNav() {
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="md:hidden flex flex-col gap-[5px] p-2"
+            className="lg:hidden flex flex-col gap-[5px] p-2"
             onClick={() => setOpen((o) => !o)}
           >
             <span
@@ -104,15 +110,15 @@ export function SiteNav() {
 
       {/* Mobile overlay */}
       {open && (
-        <nav className="md:hidden border-t border-divider bg-cream">
-          <ul className="px-6 py-6 flex flex-col gap-5">
+        <nav className="lg:hidden border-t border-divider bg-cream">
+          <ul className="px-6 py-6 flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   className={clsx(
                     "block font-[var(--font-display)] leading-tight",
-                    link.primary ? "text-[26px]" : "text-[28px]",
+                    link.primary ? "text-[24px]" : "text-[26px]",
                     isActive(link.href) || link.primary ? "" : "text-navy",
                   )}
                   style={

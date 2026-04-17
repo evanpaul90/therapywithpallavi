@@ -4,11 +4,17 @@ import { TreeEmblem } from "./tree-emblem";
 const PRIMARY = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/how-it-works", label: "How it works" },
+  { href: "/pathways", label: "Pathways" },
+  { href: "/journal", label: "Journal" },
   { href: "/faq", label: "FAQ" },
   { href: "/book", label: "Book a consultation" },
 ];
 
-const SECONDARY = [{ href: "/terms", label: "Terms & privacy" }];
+const SECONDARY = [
+  { href: "/crisis-support", label: "Crisis support" },
+  { href: "/terms", label: "Terms & privacy" },
+];
 
 const INTAKE_FORM_URL = "https://forms.gle/bj5sWBzWsdEcrVjg9";
 const WHATSAPP_URL = "https://wa.me/message/EIF2EASB2GEXI1";
@@ -52,7 +58,10 @@ export function SiteFooter() {
                 </li>
               ))}
               {SECONDARY.map((link) => (
-                <li key={link.href} className="pt-1">
+                <li
+                  key={link.href}
+                  className={link === SECONDARY[0] ? "pt-3" : ""}
+                >
                   <Link
                     href={link.href}
                     className="text-[14px] text-muted transition-colors hover:text-ink"
