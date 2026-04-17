@@ -45,3 +45,7 @@ next-env.d.ts
 
 # stray dev server logs
 *.log
+
+# tinacms generated
+tina/__generated__/
+/public/admin/
