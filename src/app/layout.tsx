@@ -4,6 +4,8 @@ import "./globals.css";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { AmbientAtmosphere } from "@/components/ambient-atmosphere";
+import { GrowingFern } from "@/components/growing-fern";
 
 const ebGaramond = EB_Garamond({
   variable: "--font-eb-garamond",
@@ -22,24 +24,30 @@ const inter = Inter({
 
 const SITE_URL = "https://therapywithpallavi.com";
 const SITE_TITLE =
-  "Pallavi Bhaskar — Psychotherapist for High-Performing Professionals · Online Therapy from Bangalore";
+  "Therapy with Pallavi Bhaskar \u2014 Trauma-informed Online Therapy · Bangalore & India";
 const SITE_DESC =
-  "Evidence-based psychotherapy for ambitious professionals in unquiet seasons. IFS, CBT, trauma-informed. Eight years of practice. Online sessions, Bangalore and globally.";
+  "Trauma-informed, evidence-based therapy to help you understand yourself more deeply, feel more grounded, and create meaningful change. Online sessions, India and globally.";
+const OG_HEADLINE =
+  "You deserve a space where you can feel safe \u2014 and begin to move forward.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: SITE_TITLE,
-    template: "%s · Pallavi Bhaskar",
+    template: "%s · Therapy with Pallavi",
   },
   description: SITE_DESC,
   keywords: [
     "psychotherapist Bangalore",
     "online therapy India",
-    "IFS therapy",
-    "CBT therapy",
+    "online therapy for NRIs",
     "trauma-informed therapy",
-    "therapy for professionals",
+    "IFS therapy India",
+    "CBT therapy",
+    "therapy for anxiety",
+    "therapy for relationship patterns",
+    "therapy for grief",
+    "therapy for burnout",
     "Pallavi Bhaskar",
   ],
   authors: [{ name: "Pallavi Bhaskar" }],
@@ -48,14 +56,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: SITE_URL,
-    title: "Therapy for the ambitious life you're quietly exhausted by.",
+    title: OG_HEADLINE,
     description: SITE_DESC,
     siteName: "Therapy with Pallavi",
     images: [{ url: "/assets/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Therapy for the ambitious life you're quietly exhausted by.",
+    title: OG_HEADLINE,
     description: SITE_DESC,
     images: ["/assets/og-image.jpg"],
   },
@@ -80,14 +88,17 @@ const personSchema = {
   knowsLanguage: ["en"],
   hasCredential: [
     "MA Clinical Psychology",
-    "PGDM",
     "CBT Practitioner",
-    "Internal Family Systems (IFS) — Trauma",
+    "Internal Family Systems (IFS) \u2014 Trauma",
     "NLP Practitioner",
     "QPR Crisis Counsellor",
   ],
   email: "therapy.icp@gmail.com",
   telephone: "+91-91086-94332",
+  sameAs: [
+    "https://www.linkedin.com/in/pallavi-bhaskar-b76a9b32/",
+    "https://www.instagram.com/therapy.with.pallavi/",
+  ],
 };
 
 const businessSchema = {
@@ -96,7 +107,7 @@ const businessSchema = {
   name: "Therapy with Pallavi",
   url: SITE_URL,
   image: `${SITE_URL}/assets/og-image.jpg`,
-  priceRange: "₹₹",
+  priceRange: "\u20B9\u20B9",
   areaServed: { "@type": "Country", name: "India" },
   address: {
     "@type": "PostalAddress",
@@ -104,7 +115,13 @@ const businessSchema = {
     addressRegion: "Karnataka",
     addressCountry: "IN",
   },
-  serviceType: ["Psychotherapy", "Counselling", "IFS Therapy", "CBT"],
+  serviceType: [
+    "Psychotherapy",
+    "Trauma-informed therapy",
+    "Online counselling",
+    "IFS Therapy",
+    "CBT",
+  ],
   founder: { "@type": "Person", name: "Pallavi Bhaskar" },
 };
 
@@ -126,10 +143,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
         />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col relative">
         <ScrollProgress />
+        <AmbientAtmosphere />
         <SiteNav />
-        <main className="flex-1">{children}</main>
+        <GrowingFern />
+        <main className="flex-1 relative">{children}</main>
         <SiteFooter />
       </body>
     </html>
