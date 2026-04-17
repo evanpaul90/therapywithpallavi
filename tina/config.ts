@@ -86,7 +86,7 @@ export default defineConfig({
             name: "body",
             label: "Body",
             isBody: true,
-            parser: { type: "md" },
+            parser: { type: "markdown" },
           },
         ],
       },
