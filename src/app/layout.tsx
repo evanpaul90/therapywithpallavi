@@ -6,6 +6,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { AmbientAtmosphere } from "@/components/ambient-atmosphere";
 import { GrowingFern } from "@/components/growing-fern";
+import { PaperTexture } from "@/components/paper-texture";
+import { CursorLeaf } from "@/components/cursor-leaf";
+import { NightMode } from "@/components/night-mode";
 
 const ebGaramond = EB_Garamond({
   variable: "--font-eb-garamond",
@@ -144,8 +147,11 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col relative">
+        <NightMode />
+        <PaperTexture />
         <ScrollProgress />
         <AmbientAtmosphere />
+        <CursorLeaf />
         <SiteNav />
         <GrowingFern />
         <main className="flex-1 relative">{children}</main>

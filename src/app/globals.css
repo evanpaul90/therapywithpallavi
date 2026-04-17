@@ -499,6 +499,133 @@ body {
   animation: cta-ripple 600ms ease-out;
 }
 
+/* ===== Editorial Intimate — Living Manuscript utilities ===== */
+
+/* Paper grain — global tactile texture */
+.paper-texture {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 45;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Watercolor wash — large blurred sage gradient */
+.watercolor-wash {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(61, 109, 94, 0.08) 0%, rgba(252, 249, 243, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(40px);
+}
+.watercolor-wash--peach {
+  background: radial-gradient(circle, rgba(232, 196, 176, 0.18) 0%, rgba(252, 249, 243, 0) 70%);
+}
+.watercolor-wash--sage {
+  background: radial-gradient(circle, rgba(127, 184, 165, 0.12) 0%, rgba(252, 249, 243, 0) 70%);
+}
+
+/* Drop cap — editorial opening for prose */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  line-height: 0.82;
+  padding-top: 0.2rem;
+  padding-right: 0.5rem;
+  color: var(--color-sage-deep);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Marginalia — italic sage quote in the margin of prose */
+.marginalia {
+  position: absolute;
+  top: 0;
+  width: 13rem;
+  border-left: 1px solid rgba(61, 109, 94, 0.25);
+  padding-left: 1.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--color-sage-deep);
+}
+.marginalia--right {
+  right: -15rem;
+}
+.marginalia--left {
+  left: -15rem;
+  border-left: 0;
+  border-right: 1px solid rgba(61, 109, 94, 0.25);
+  padding-left: 0;
+  padding-right: 1.25rem;
+  text-align: right;
+}
+
+/* Editorial small caps — tighter, more literary than cap-label */
+.editorial-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-sage-deep);
+}
+
+/* Italic display for all display-italic headlines */
+.display-italic {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Sage tint blend mode for photography placeholder overlays */
+.sage-tint {
+  background: linear-gradient(
+    135deg,
+    rgba(127, 184, 165, 0.18),
+    rgba(61, 109, 94, 0.10)
+  );
+}
+
+/* Cursor leaf — signature follow-cursor motion */
+.cursor-leaf {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  z-index: 8;
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: opacity 600ms ease-out;
+  color: var(--color-sage-deep);
+  will-change: transform;
+}
+.cursor-leaf.is-on {
+  opacity: 0.35;
+}
+
+/* Night palette override — auto-applied between 9pm and 6am local time */
+.is-night {
+  --color-cream: #f3efe7;
+  --color-cream-warm: #f0e9dc;
+  --color-sage-pale: #e1ebdf;
+  --color-peach-pale: #ede0d3;
+  --color-clay-pale: #e6ddcf;
+}
+
+/* Respect reduced motion on new layers too */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-leaf { display: none; }
+}
+
 /* ===== Journal post drop cap (kept for hidden /journal) ===== */
 
 .journal-prose > p:first-of-type::first-letter {
