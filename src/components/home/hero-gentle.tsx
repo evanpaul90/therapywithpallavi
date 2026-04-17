@@ -1,17 +1,14 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
-import {
-  SageBlob,
-  WoodenChair,
-  WindowWithLight,
-} from "@/components/illustrations";
+import { SageBlob } from "@/components/illustrations";
 
 /**
- * HeroGentle — editorial opening, composed scene.
+ * HeroGentle — editorial opening with photographic anchor.
  *
- * A room drawn in the margin of a letter: a wooden chair beside a window,
- * lit by afternoon sun, with a sage watercolor wash behind. A quiet
- * "you have arrived" moment. Pallavi's voice opens the scene, not a photo.
+ * A real room instead of a rendered illustration. Empty wooden chair by
+ * a window, afternoon light on linen — the room the visitor has arrived in.
+ * Her copy opens beside it. Watercolor washes + sage blob drift behind.
  */
 export function HeroGentle() {
   return (
@@ -19,7 +16,7 @@ export function HeroGentle() {
       className="relative overflow-hidden"
       style={{ background: "var(--color-cream-warm)" }}
     >
-      {/* Watercolor washes — warm atmospheric depth */}
+      {/* Watercolor washes */}
       <div
         aria-hidden="true"
         className="watercolor-wash"
@@ -31,7 +28,7 @@ export function HeroGentle() {
         style={{ bottom: "-25%", right: "-15%" }}
       />
 
-      {/* Ambient sage blobs, breathing far behind */}
+      {/* Ambient sage blob breathing behind */}
       <div
         aria-hidden="true"
         className="absolute -top-20 -left-40 pointer-events-none blob-drift-1"
@@ -39,13 +36,10 @@ export function HeroGentle() {
         <SageBlob size={560} />
       </div>
 
-      {/* Dappled light overlay */}
-      <div className="dapple-light" aria-hidden="true" />
-
-      <div className="relative mx-auto max-w-[var(--content-max)] px-6 md:px-12 pt-20 pb-24 md:pt-32 md:pb-36">
+      <div className="relative mx-auto max-w-[var(--content-max)] px-6 md:px-12 pt-20 pb-20 md:pt-28 md:pb-28">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
           {/* Copy column */}
-          <div className="md:col-span-7">
+          <div className="md:col-span-6 lg:col-span-6">
             <FadeIn>
               <p className="editorial-eyebrow">Therapy with Pallavi Bhaskar</p>
             </FadeIn>
@@ -87,44 +81,38 @@ export function HeroGentle() {
             </FadeIn>
           </div>
 
-          {/* Composed room scene */}
-          <div className="md:col-span-5 relative">
+          {/* Photography column — chair by window */}
+          <div className="md:col-span-6 lg:col-span-6 relative">
             <FadeIn delay={0.3}>
-              <div className="relative mx-auto md:mx-0 md:ml-auto max-w-[420px]">
-                {/* Warm sage wash halo behind scene */}
+              <figure className="relative mx-auto md:mx-0 md:ml-auto max-w-[560px]">
+                {/* Sage wash halo */}
                 <div
                   aria-hidden="true"
-                  className="absolute -inset-10 sage-tint"
-                  style={{ borderRadius: "50%", filter: "blur(30px)" }}
+                  className="absolute -inset-6 sage-tint pointer-events-none"
+                  style={{ filter: "blur(24px)" }}
                 />
-
                 <div
-                  className="relative p-10 md:p-12 border border-divider"
-                  style={{
-                    background: "rgba(255,255,255,0.45)",
-                    backdropFilter: "blur(2px)",
-                  }}
+                  className="relative overflow-hidden"
+                  style={{ aspectRatio: "3/2" }}
                 >
-                  {/* Window — behind the chair */}
-                  <div className="absolute top-4 right-6 opacity-75">
-                    <WindowWithLight size={200} />
-                  </div>
-                  {/* Chair — foreground */}
-                  <div className="relative mt-28 flex justify-center">
-                    <WoodenChair size={220} />
-                  </div>
+                  <Image
+                    src="/assets/photography/chair-by-window.jpg"
+                    alt="An empty wooden chair beside a window with afternoon light on a wooden floor, a small vase with a single fern frond"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 560px"
+                    className="object-cover"
+                    priority
+                  />
                 </div>
-
-                {/* Caption — like a museum placard */}
-                <p className="mt-5 text-[12px] editorial-eyebrow text-center">
+                <figcaption className="mt-4 text-center text-[11px] editorial-eyebrow">
                   A chair by the window &middot; afternoon light
-                </p>
-              </div>
+                </figcaption>
+              </figure>
             </FadeIn>
           </div>
         </div>
 
-        {/* The 'letter opening' prose — drop-capped */}
+        {/* Letter prose below */}
         <div className="mt-24 md:mt-32 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
           <div className="md:col-span-8 md:col-start-2 relative">
             <FadeIn>
@@ -150,9 +138,11 @@ export function HeroGentle() {
                 </p>
               </div>
 
-              {/* Marginalia — "Finally, someone who gets it." */}
               <div className="hidden xl:block">
-                <p className="marginalia marginalia--right" style={{ top: "1rem" }}>
+                <p
+                  className="marginalia marginalia--right"
+                  style={{ top: "1rem" }}
+                >
                   Finally, someone who gets it.
                 </p>
               </div>

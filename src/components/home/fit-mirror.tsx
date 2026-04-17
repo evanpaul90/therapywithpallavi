@@ -1,14 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { Teacup, SageBlob } from "@/components/illustrations";
+import { SageBlob } from "@/components/illustrations";
 
 /**
- * FitMirror — the emotional hinge with illustrated accent.
+ * FitMirror — five-line self-recognition with real teacup photography.
  *
- * Five lines, each appearing one-at-a-time as the section enters view
- * (500ms stagger). A sage teacup illustration + watercolor halo sit to
- * the side — the visitor is being read TO, gently, with tea nearby.
+ * Each line reveals one-at-a-time as the section enters view (500ms stagger).
+ * A steaming teacup photo sits in the right column, sage halo behind.
  */
 const LINES = [
   "Feel overwhelmed, even when things seem fine on the outside",
@@ -46,14 +46,11 @@ export function FitMirror() {
       className="relative overflow-hidden"
       style={{ background: "var(--color-sage-pale)" }}
     >
-      {/* Watercolor sage wash */}
       <div
         aria-hidden="true"
         className="watercolor-wash watercolor-wash--sage"
         style={{ top: "-15%", right: "-10%" }}
       />
-
-      {/* Distant blob */}
       <div
         aria-hidden="true"
         className="absolute -bottom-40 -left-20 pointer-events-none blob-drift-3"
@@ -61,10 +58,10 @@ export function FitMirror() {
         <SageBlob size={520} />
       </div>
 
-      <div className="relative mx-auto max-w-[var(--content-max)] px-6 md:px-12 py-28 md:py-40">
+      <div className="relative mx-auto max-w-[var(--content-max)] px-6 md:px-12 py-24 md:py-36">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-start">
           {/* Text column */}
-          <div className="md:col-span-8">
+          <div className="md:col-span-7">
             <p className="editorial-eyebrow">Is this you</p>
             <h2 className="display-l display-italic mt-6">
               This space may be a good fit if you&hellip;
@@ -96,22 +93,31 @@ export function FitMirror() {
             </p>
           </div>
 
-          {/* Illustration column — floating teacup in warm halo */}
-          <div className="md:col-span-4 relative">
-            <div className="sticky top-28 flex justify-center md:justify-end">
-              <div className="relative">
+          {/* Photography column */}
+          <div className="md:col-span-5 relative">
+            <div className="md:sticky md:top-28">
+              <figure className="relative mx-auto md:mx-0 md:ml-auto max-w-[400px]">
                 <div
                   aria-hidden="true"
-                  className="absolute -inset-12 sage-tint"
-                  style={{ borderRadius: "50%", filter: "blur(24px)" }}
+                  className="absolute -inset-6 sage-tint pointer-events-none"
+                  style={{ filter: "blur(28px)" }}
                 />
-                <div className="relative">
-                  <Teacup size={220} />
+                <div
+                  className="relative overflow-hidden"
+                  style={{ aspectRatio: "4/5" }}
+                >
+                  <Image
+                    src="/assets/photography/teacup-steam.jpg"
+                    alt="A ceramic teacup with steam rising, resting on a linen napkin on a wooden table, a single sage leaf beside it"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover"
+                  />
                 </div>
-                <p className="mt-4 text-center text-[12px] editorial-eyebrow">
+                <figcaption className="mt-4 text-center text-[11px] editorial-eyebrow">
                   Tea has no hurry
-                </p>
-              </div>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>
