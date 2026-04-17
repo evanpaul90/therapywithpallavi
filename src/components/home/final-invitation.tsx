@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { SageBlob } from "@/components/illustrations";
 
 /**
- * FinalInvitation — the room's door, held open.
+ * FinalInvitation — the door held open.
  *
- * Her final line. A sage underline draws under the word 'begin' when the
- * sentence enters the viewport. One moment. Photographable.
+ * Her final line. A sage underline draws under "begin" on viewport entry.
+ * A sage blob breathes behind. Warm cream bookend.
  */
 export function FinalInvitation() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -34,16 +35,28 @@ export function FinalInvitation() {
   return (
     <section
       ref={sectionRef}
-      className="relative"
+      className="relative overflow-hidden"
       style={{ background: "var(--color-cream-warm)" }}
     >
-      <div className="mx-auto max-w-[var(--content-max)] px-6 md:px-10 py-32 md:py-48 text-center">
-        <p className="cap-label">A quiet invitation</p>
+      {/* Sage blob breathing far behind */}
+      <div
+        aria-hidden="true"
+        className="absolute -top-20 left-1/2 -translate-x-1/2 pointer-events-none blob-drift-2 opacity-70"
+      >
+        <SageBlob size={640} />
+      </div>
 
-        <h2
-          className="display-l mt-10 max-w-[820px] mx-auto italic"
-          style={{ fontStyle: "italic" }}
-        >
+      {/* Watercolor wash in the corner */}
+      <div
+        aria-hidden="true"
+        className="watercolor-wash watercolor-wash--peach"
+        style={{ bottom: "-30%", left: "-10%" }}
+      />
+
+      <div className="relative mx-auto max-w-[var(--content-max)] px-6 md:px-12 py-32 md:py-48 text-center">
+        <p className="editorial-eyebrow">A quiet invitation</p>
+
+        <h2 className="display-xl display-italic mt-10 max-w-[860px] mx-auto">
           You don&rsquo;t have to have everything figured out before you{" "}
           <span className={`begin-underline${triggered ? " is-visible" : ""}`}>
             begin
@@ -56,14 +69,14 @@ export function FinalInvitation() {
           what you&rsquo;re looking for and see if this feels right for you.
         </p>
 
-        <div className="mt-14 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-5">
+        <div className="mt-14">
           <Link href="/book" className="btn-primary">
             Start with a free 15-minute consultation
             <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
 
-        <p className="mt-6 text-[14px] text-muted">
+        <p className="mt-6 text-[13px] text-muted">
           No pressure &mdash; just a conversation.
         </p>
       </div>

@@ -1,13 +1,17 @@
 import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
-import { SageBlob } from "@/components/illustrations";
+import {
+  SageBlob,
+  WoodenChair,
+  WindowWithLight,
+} from "@/components/illustrations";
 
 /**
- * HeroGentle — the room opens.
+ * HeroGentle — editorial opening, composed scene.
  *
- * Her exact copy. No word-by-word reveals, no billboard photo.
- * The visitor walks in. The cream is warm. A dappled-light overlay drifts.
- * Two sage blobs breathe slowly far behind.
+ * A room drawn in the margin of a letter: a wooden chair beside a window,
+ * lit by afternoon sun, with a sage watercolor wash behind. A quiet
+ * "you have arrived" moment. Pallavi's voice opens the scene, not a photo.
  */
 export function HeroGentle() {
   return (
@@ -15,92 +19,147 @@ export function HeroGentle() {
       className="relative overflow-hidden"
       style={{ background: "var(--color-cream-warm)" }}
     >
-      {/* Ambient depth — sage blobs drifting slowly behind everything */}
+      {/* Watercolor washes — warm atmospheric depth */}
+      <div
+        aria-hidden="true"
+        className="watercolor-wash"
+        style={{ top: "-20%", left: "-10%" }}
+      />
+      <div
+        aria-hidden="true"
+        className="watercolor-wash watercolor-wash--peach"
+        style={{ bottom: "-25%", right: "-15%" }}
+      />
+
+      {/* Ambient sage blobs, breathing far behind */}
       <div
         aria-hidden="true"
         className="absolute -top-20 -left-40 pointer-events-none blob-drift-1"
       >
         <SageBlob size={560} />
       </div>
-      <div
-        aria-hidden="true"
-        className="absolute -bottom-32 -right-40 pointer-events-none blob-drift-2"
-      >
-        <SageBlob size={480} />
-      </div>
-      {/* Dappled light — radial-gradient overlay */}
+
+      {/* Dappled light overlay */}
       <div className="dapple-light" aria-hidden="true" />
 
-      <div className="relative mx-auto max-w-[var(--content-max)] px-6 md:px-10 pt-24 pb-24 md:pt-36 md:pb-36">
-        <div className="max-w-[860px]">
-          <FadeIn>
-            <p className="cap-label">Therapy with Pallavi Bhaskar</p>
-          </FadeIn>
+      <div className="relative mx-auto max-w-[var(--content-max)] px-6 md:px-12 pt-20 pb-24 md:pt-32 md:pb-36">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
+          {/* Copy column */}
+          <div className="md:col-span-7">
+            <FadeIn>
+              <p className="editorial-eyebrow">Therapy with Pallavi Bhaskar</p>
+            </FadeIn>
 
-          <FadeIn delay={0.15}>
-            <h1 className="display-xl mt-8">
-              You deserve a space where you can feel safe &mdash; and begin to
-              move forward.
-            </h1>
-          </FadeIn>
+            <FadeIn delay={0.15}>
+              <h1 className="display-xl display-italic mt-8">
+                You deserve a space where you can feel safe &mdash; and begin to
+                move forward.
+              </h1>
+            </FadeIn>
 
-          <FadeIn delay={0.3}>
-            <p className="lead mt-8 max-w-[680px]">
-              Trauma-informed, evidence-based therapy to help you understand
-              yourself more deeply, feel more grounded, and create meaningful
-              change.
-            </p>
-          </FadeIn>
-        </div>
-
-        <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
-          <div className="md:col-span-7 space-y-6 text-ink">
-            <FadeIn delay={0.4}>
-              <p>
-                Life doesn&rsquo;t always fall apart in obvious ways. Sometimes,
-                it shows up as overthinking, emotional overwhelm, or a quiet
-                sense that something isn&rsquo;t working &mdash; even when
-                things look &ldquo;fine&rdquo; on the outside.
+            <FadeIn delay={0.3}>
+              <p className="lead mt-8 max-w-[560px]">
+                Trauma-informed, evidence-based therapy to help you understand
+                yourself more deeply, feel more grounded, and create meaningful
+                change.
               </p>
             </FadeIn>
-            <FadeIn delay={0.5}>
-              <p className="font-[var(--font-display)] italic text-[22px] text-navy leading-snug">
-                You don&rsquo;t need to be in crisis to reach out.
+
+            <FadeIn delay={0.45}>
+              <p
+                className="mt-10 font-[var(--font-display)] italic text-[22px] md:text-[24px] text-navy leading-snug"
+              >
+                &ldquo;You don&rsquo;t need to be in crisis to reach out.&rdquo;
               </p>
             </FadeIn>
+
             <FadeIn delay={0.6}>
-              <p>
-                Therapy offers a space to pause, make sense of what you&rsquo;re
-                experiencing, and begin to move forward with greater clarity
-                and steadiness &mdash; at a pace that feels right for you.
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.7}>
-              <p className="text-muted">
-                I&rsquo;m Pallavi Bhaskar, a Counsellor and Psychotherapist
-                with 8+ years of professional experience, including 4+ years in
-                therapeutic practice.
-              </p>
-            </FadeIn>
-          </div>
-
-          <div className="md:col-span-5 md:pl-8">
-            <FadeIn delay={0.55}>
-              <div className="md:sticky md:top-28">
+              <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                 <Link href="/book" className="btn-primary">
                   Start with a free 15-minute consultation
                   <span aria-hidden="true">&rarr;</span>
                 </Link>
-                <p className="mt-4 text-[14px] text-muted max-w-[320px]">
+                <p className="text-[13px] text-muted max-w-[260px]">
                   No pressure &mdash; just a conversation to see if this feels
                   right.
                 </p>
               </div>
             </FadeIn>
           </div>
+
+          {/* Composed room scene */}
+          <div className="md:col-span-5 relative">
+            <FadeIn delay={0.3}>
+              <div className="relative mx-auto md:mx-0 md:ml-auto max-w-[420px]">
+                {/* Warm sage wash halo behind scene */}
+                <div
+                  aria-hidden="true"
+                  className="absolute -inset-10 sage-tint"
+                  style={{ borderRadius: "50%", filter: "blur(30px)" }}
+                />
+
+                <div
+                  className="relative p-10 md:p-12 border border-divider"
+                  style={{
+                    background: "rgba(255,255,255,0.45)",
+                    backdropFilter: "blur(2px)",
+                  }}
+                >
+                  {/* Window — behind the chair */}
+                  <div className="absolute top-4 right-6 opacity-75">
+                    <WindowWithLight size={200} />
+                  </div>
+                  {/* Chair — foreground */}
+                  <div className="relative mt-28 flex justify-center">
+                    <WoodenChair size={220} />
+                  </div>
+                </div>
+
+                {/* Caption — like a museum placard */}
+                <p className="mt-5 text-[12px] editorial-eyebrow text-center">
+                  A chair by the window &middot; afternoon light
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+
+        {/* The 'letter opening' prose — drop-capped */}
+        <div className="mt-24 md:mt-32 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
+          <div className="md:col-span-8 md:col-start-2 relative">
+            <FadeIn>
+              <div className="prose-section text-ink max-w-[620px]">
+                <p
+                  className="drop-cap text-[19px] md:text-[20px] leading-[1.85]"
+                >
+                  Life doesn&rsquo;t always fall apart in obvious ways. Sometimes,
+                  it shows up as overthinking, emotional overwhelm, or a quiet
+                  sense that something isn&rsquo;t working &mdash; even when
+                  things look &ldquo;fine&rdquo; on the outside.
+                </p>
+                <p className="mt-5 text-[19px] leading-[1.8]">
+                  Therapy offers a space to pause, make sense of what
+                  you&rsquo;re experiencing, and begin to move forward with
+                  greater clarity and steadiness &mdash; at a pace that feels
+                  right for you.
+                </p>
+                <p className="mt-5 text-[17px] leading-[1.7] text-muted">
+                  I&rsquo;m Pallavi Bhaskar, a Counsellor and Psychotherapist
+                  with 8+ years of professional experience, including 4+ years
+                  in therapeutic practice.
+                </p>
+              </div>
+
+              {/* Marginalia — "Finally, someone who gets it." */}
+              <div className="hidden xl:block">
+                <p className="marginalia marginalia--right" style={{ top: "1rem" }}>
+                  Finally, someone who gets it.
+                </p>
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </div>
-      <hr className="hairline" />
     </section>
   );
 }
