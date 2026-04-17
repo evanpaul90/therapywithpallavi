@@ -1,18 +1,36 @@
 @import "tailwindcss";
 
-/* ===== Design Tokens — TWP Editorial ===== */
+/* =========================================================================
+   Therapy with Pallavi — Editorial Intimate Design System
+   One color memory: sage. Paper: cream. Ink: navy. Everything else: rare.
+   ========================================================================= */
 
 :root {
-  /* Palette */
+  /* ===== Palette ===== */
+  /* Paper */
   --color-cream: #fafaf7;
+  --color-cream-warm: #faf7f1;      /* rare — Final CTA backdrop */
   --color-surface: #ffffff;
   --color-divider: #e5e2dc;
+
+  /* Ink */
   --color-muted: #6c7278;
   --color-ink: #2a2e33;
   --color-navy: #1a2e3a;
+
+  /* Sage — the one color memory */
+  --color-sage-pale: #eaf2ec;       /* section wash backdrops */
+  --color-sage-soft: #c8deca;       /* atmospheric fills */
+  --color-sage: #7fb8a5;            /* botanical strokes, emphasis */
+  --color-sage-deep: #3d6d5e;       /* CTA primary, text emphasis */
+
+  /* Rare accents — used once each on the whole site */
+  --color-peach-pale: #f4e6dd;      /* What Therapy Is / Is Not backdrop */
+  --color-clay-pale: #ede4dc;       /* About page backdrop only */
+
+  /* Legacy (kept for hidden pages /how-i-work /journal /contact /terms) */
   --color-teal: #2f6b78;
   --color-teal-light: #4ea1a8;
-  --color-sage: #7fb8a5;
   --color-ochre: #c8a96b;
   --color-rust: #a45a3d;
 
@@ -24,21 +42,27 @@
   --font-display: var(--font-eb-garamond), Georgia, "Times New Roman", serif;
   --font-body: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* Prose */
-  --prose-max: 680px;
+  /* Prose — reader-scale, tightened for letter-feel */
+  --prose-max: 560px;
   --content-max: 1200px;
 }
 
 @theme inline {
   --color-cream: var(--color-cream);
+  --color-cream-warm: var(--color-cream-warm);
   --color-surface: var(--color-surface);
   --color-divider: var(--color-divider);
   --color-muted: var(--color-muted);
   --color-ink: var(--color-ink);
   --color-navy: var(--color-navy);
+  --color-sage-pale: var(--color-sage-pale);
+  --color-sage-soft: var(--color-sage-soft);
+  --color-sage: var(--color-sage);
+  --color-sage-deep: var(--color-sage-deep);
+  --color-peach-pale: var(--color-peach-pale);
+  --color-clay-pale: var(--color-clay-pale);
   --color-teal: var(--color-teal);
   --color-teal-light: var(--color-teal-light);
-  --color-sage: var(--color-sage);
   --color-ochre: var(--color-ochre);
   --color-rust: var(--color-rust);
   --color-background: var(--color-cream);
@@ -51,9 +75,7 @@
 
 /* ===== Base ===== */
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -65,17 +87,17 @@ body {
   background: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 1.65;
+  font-size: 19px;
+  line-height: 1.8;
   font-weight: 400;
   margin: 0;
 }
 
 @media (max-width: 768px) {
-  body {
-    font-size: 17px;
-  }
+  body { font-size: 17px; line-height: 1.75; }
 }
+
+/* ===== Typography utilities ===== */
 
 .cap-label {
   font-family: var(--font-body);
@@ -89,8 +111,8 @@ body {
 .display-xl {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(44px, 7vw, 72px);
-  line-height: 1.08;
+  font-size: clamp(42px, 6.5vw, 68px);
+  line-height: 1.12;
   letter-spacing: 0.005em;
   color: var(--color-navy);
 }
@@ -98,8 +120,8 @@ body {
 .display-l {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(36px, 5vw, 56px);
-  line-height: 1.12;
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.15;
   letter-spacing: 0.005em;
   color: var(--color-navy);
 }
@@ -107,25 +129,21 @@ body {
 .display-m {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(30px, 4vw, 44px);
-  line-height: 1.2;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.22;
   color: var(--color-navy);
 }
 
-.display-italic {
-  font-style: italic;
-}
+.display-italic { font-style: italic; }
 
 .lead {
   font-size: 20px;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--color-muted);
 }
 
 @media (max-width: 768px) {
-  .lead {
-    font-size: 18px;
-  }
+  .lead { font-size: 18px; }
 }
 
 .prose-section {
@@ -134,9 +152,7 @@ body {
   margin-right: auto;
 }
 
-.prose-section p {
-  margin: 0 0 1.5em;
-}
+.prose-section p { margin: 0 0 1.5em; }
 
 .hairline {
   border: 0;
@@ -144,12 +160,14 @@ body {
   margin: 0;
 }
 
+/* ===== Buttons ===== */
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 16px 32px;
-  background: var(--color-teal);
+  background: var(--color-sage-deep);
   color: #ffffff;
   font-family: var(--font-body);
   font-weight: 500;
@@ -159,15 +177,38 @@ body {
   border: 0;
   cursor: pointer;
   text-decoration: none;
-  transition: background 150ms ease-out;
+  transition: background 200ms ease-out, transform 200ms ease-out;
 }
 
 .btn-primary:hover {
-  background: #285e69;
+  background: #2f5648;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--color-sage-deep);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--color-sage-deep);
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 200ms ease-out, color 200ms ease-out;
+}
+
+.btn-secondary:hover {
+  background: var(--color-sage-pale);
 }
 
 .btn-link {
-  color: var(--color-teal);
+  color: var(--color-sage-deep);
   font-family: var(--font-body);
   font-weight: 500;
   font-size: 15px;
@@ -178,28 +219,26 @@ body {
 .btn-link:hover {
   color: var(--color-navy);
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 ::selection {
-  background: var(--color-teal);
+  background: var(--color-sage-deep);
   color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-teal);
+  outline: 2px solid var(--color-sage-deep);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
+/* ===== Motion — ambient, never performative ===== */
+
+/* Gentle fade-up on section entry */
 @keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .fade-in {
@@ -207,144 +246,138 @@ body {
   animation: fade-up 700ms ease-out both;
 }
 
-/* ===== Hero headline word-by-word reveal ===== */
-
-@keyframes word-rise {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-    filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
-.word {
-  display: inline-block;
-  opacity: 0;
-  animation: word-rise 800ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
-}
-
-/* ===== Emblem ambient breathing ===== */
-
+/* Emblem breathing — kept softer */
 @keyframes emblem-breathe {
-  0%, 100% {
-    transform: scale(1) translateY(0);
-  }
-  50% {
-    transform: scale(1.025) translateY(-4px);
-  }
+  0%, 100% { transform: scale(1) translateY(0); }
+  50%      { transform: scale(1.02) translateY(-3px); }
 }
 
 .emblem-alive {
-  animation: emblem-breathe 8s ease-in-out infinite;
+  animation: emblem-breathe 10s ease-in-out infinite;
   will-change: transform;
 }
 
-/* ===== Hero background concentric arcs ===== */
-
-@keyframes arc-pulse {
-  0%, 100% {
-    opacity: 0.10;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.20;
-    transform: scale(1.04);
-  }
+/* Ambient horizon — top/bottom hairlines that breathe */
+@keyframes horizon-breathe {
+  0%, 100% { opacity: 0.20; }
+  50%      { opacity: 0.45; }
 }
 
-.hero-arc {
-  animation: arc-pulse 10s ease-in-out infinite;
-  transform-origin: center;
+.ambient-horizon {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-sage);
+  z-index: 5;
+  pointer-events: none;
+  animation: horizon-breathe 12s ease-in-out infinite;
+}
+
+.ambient-horizon--top { top: 0; }
+.ambient-horizon--bottom { bottom: 0; animation-delay: -6s; }
+
+/* Drifting leaves — atmospheric whitespace motion */
+@keyframes leaf-drift {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  15%  { opacity: 0.18; }
+  85%  { opacity: 0.18; }
+  100% { transform: translate(-40px, 80px) rotate(-15deg); opacity: 0; }
+}
+
+.drift-leaf {
+  position: absolute;
+  color: var(--color-sage);
+  opacity: 0;
+  pointer-events: none;
+  animation: leaf-drift 25s ease-in-out infinite;
   will-change: transform, opacity;
 }
 
-/* ===== Emblem circular reveal on first load ===== */
-
-@keyframes emblem-reveal {
-  from {
-    clip-path: circle(0% at 50% 50%);
-    opacity: 0;
-  }
-  60% {
-    opacity: 1;
-  }
-  to {
-    clip-path: circle(55% at 50% 50%);
-    opacity: 1;
-  }
+/* Fit-line reveal — one-by-one on scroll */
+@keyframes fit-line-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.emblem-reveal {
-  clip-path: circle(0% at 50% 50%);
-  animation: emblem-reveal 1800ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both;
+.fit-line {
+  opacity: 0;
 }
 
-@keyframes emblem-rotate {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+.fit-line.is-visible {
+  animation: fit-line-in 700ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
 }
 
-.emblem-rotate {
-  animation: emblem-rotate 240s linear infinite;
+/* 'Begin' underline — signature moment */
+@keyframes begin-underline {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
-/* ===== Animated tree SVG — stroke draw on first paint ===== */
-
-@keyframes badge-fade {
-  from { opacity: 0; transform: scale(0.92); transform-origin: 50% 50%; }
-  to   { opacity: 1; transform: scale(1); }
+.begin-underline {
+  position: relative;
+  display: inline-block;
 }
 
-.tree-badge {
-  transform-origin: 180px 180px;
-  animation: badge-fade 1100ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+.begin-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.08em;
+  height: 3px;
+  background: var(--color-sage-deep);
+  transform-origin: left;
+  transform: scaleX(0);
 }
 
-@keyframes ring-draw {
-  from { stroke-dasharray: 1000; stroke-dashoffset: 1000; opacity: 0; }
-  to   { stroke-dasharray: 1000; stroke-dashoffset: 0; opacity: 1; }
+.begin-underline.is-visible::after {
+  animation: begin-underline 1400ms cubic-bezier(0.65, 0, 0.35, 1) 300ms both;
 }
 
-.tree-ring {
-  animation: ring-draw 1400ms ease-out both;
+/* Growing fern — fronds unfurl as scroll progresses */
+@keyframes frond-unfurl {
+  from { stroke-dasharray: 300; stroke-dashoffset: 300; opacity: 0; }
+  to   { stroke-dasharray: 300; stroke-dashoffset: 0; opacity: 0.4; }
 }
 
-@keyframes stroke-draw {
-  from { stroke-dasharray: 600; stroke-dashoffset: 600; opacity: 0; }
-  to   { stroke-dasharray: 600; stroke-dashoffset: 0; opacity: 1; }
+.fern-frond {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  opacity: 0;
+  transition: stroke-dashoffset 1500ms cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 800ms ease-out;
 }
 
-.tree-stroke {
-  animation: stroke-draw 900ms ease-out both;
+.fern-frond.is-revealed {
+  stroke-dashoffset: 0;
+  opacity: 0.4;
 }
 
-@keyframes leaf-pop {
-  0%   { opacity: 0; transform: scale(0.4); }
-  60%  { opacity: 1; transform: scale(1.15); }
-  100% { opacity: 1; transform: scale(1); }
+/* Pathway reader — scroll-bold transition */
+.pathway-line {
+  transition: color 600ms ease-out, opacity 600ms ease-out;
+  color: var(--color-muted);
+  opacity: 0.55;
 }
 
-.tree-leaf {
-  transform-origin: center;
-  animation: leaf-pop 600ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+.pathway-line.is-active {
+  color: var(--color-navy);
+  opacity: 1;
 }
 
-@keyframes fill-fade {
-  from { opacity: 0; transform: scale(0); }
-  to   { opacity: 1; transform: scale(1); }
+/* Shared breath on navigation to external booking */
+@keyframes page-exhale {
+  0%   { opacity: 1; }
+  60%  { opacity: 0.6; }
+  100% { opacity: 1; }
 }
 
-.tree-fill {
-  transform-origin: center;
-  animation: fill-fade 600ms ease-out both;
+.page-exhale {
+  animation: page-exhale 800ms ease-in-out;
 }
 
-/* ===== Journal post drop cap ===== */
+/* ===== Journal post drop cap (kept for hidden /journal) ===== */
 
 .journal-prose > p:first-of-type::first-letter {
   font-family: var(--font-display);
@@ -357,30 +390,7 @@ body {
   font-weight: 500;
 }
 
-/* ===== Pull-quote ochre underline draw ===== */
-
-@keyframes underline-draw {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
-}
-
-.ochre-underline {
-  display: inline-block;
-  position: relative;
-}
-
-.ochre-underline::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -0.12em;
-  height: 3px;
-  background: var(--color-ochre);
-  transform-origin: left;
-  transform: scaleX(0);
-  animation: underline-draw 1200ms cubic-bezier(0.65, 0, 0.35, 1) 600ms both;
-}
+/* ===== Reduced motion — honored strictly ===== */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -389,25 +399,17 @@ body {
     transition-duration: 0.01ms !important;
   }
   .fade-in,
-  .word { opacity: 1; transform: none; filter: none; animation: none; }
+  .fit-line { opacity: 1; transform: none; animation: none; }
   .emblem-alive,
-  .hero-arc { animation: none; }
-  .ochre-underline::after { transform: scaleX(1); animation: none; }
-  .tree-badge,
-  .tree-ring,
-  .tree-stroke,
-  .tree-leaf,
-  .tree-fill {
-    opacity: 1;
-    transform: none;
+  .ambient-horizon,
+  .drift-leaf { animation: none; opacity: 0.3; }
+  .begin-underline::after { transform: scaleX(1); animation: none; }
+  .fern-frond {
     stroke-dasharray: none;
     stroke-dashoffset: 0;
+    opacity: 0.4;
     animation: none;
+    transition: none;
   }
-  .emblem-reveal {
-    clip-path: none;
-    animation: none;
-    opacity: 1;
-  }
-  .emblem-rotate { animation: none; }
+  .pathway-line { color: var(--color-ink); opacity: 1; }
 }
