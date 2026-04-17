@@ -1,16 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 /**
- * PathwaysRead — her five IF-statements as a slow vertical reading.
+ * PathwaysRead — her five IF-statements as a slow vertical reading teaser.
  *
- * Not a card grid. Each pathway takes generous vertical space.
- * The pathway whose title is nearest the viewport center gets emphasis
- * (ink-dark, full opacity). The others sit muted.
- *
- * SEO note: the display copy is her human IF-phrasing, but the
- * anchor slugs underneath carry clinical keywords for search intent.
+ * Home-page version. The full expansion lives at /pathways.
+ * The pathway whose title crosses viewport center is emphasized
+ * (ink-dark, full opacity). Others sit muted.
  */
 const PATHWAYS = [
   {
@@ -19,7 +17,7 @@ const PATHWAYS = [
     body: "We explore what\u2019s driving your overwhelm and build ways to feel more steady.",
   },
   {
-    id: "patterns",
+    id: "repeating-patterns",
     heading: "If you notice repeating patterns",
     body: "We understand where these patterns come from and begin to shift them.",
   },
@@ -77,11 +75,10 @@ export function PathwaysRead() {
           {PATHWAYS.map((pathway, i) => (
             <div
               key={pathway.id}
-              id={`pathway-${pathway.id}`}
               ref={(el) => {
                 refs.current[i] = el;
               }}
-              className={`py-16 md:py-24 border-t border-divider pathway-line${
+              className={`py-12 md:py-16 border-t border-divider pathway-line${
                 i === active ? " is-active" : ""
               }`}
             >
@@ -95,7 +92,7 @@ export function PathwaysRead() {
                 </span>
                 <div>
                   <h3 className="display-m">{pathway.heading}</h3>
-                  <p className="mt-5 text-[19px] leading-[1.75] max-w-[580px]">
+                  <p className="mt-4 text-[18px] leading-[1.7] max-w-[560px]">
                     {pathway.body}
                   </p>
                 </div>
@@ -104,46 +101,10 @@ export function PathwaysRead() {
           ))}
         </div>
 
-        {/* Session + process — subtle closer beneath the pathways */}
-        <div className="mt-24 md:mt-32 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 max-w-[920px]">
-          <div>
-            <p className="cap-label">Session details</p>
-            <p className="mt-5 font-[var(--font-display)] text-[22px] text-navy leading-[1.4]">
-              60-minute sessions &middot; online &middot; weekly or fortnightly.
-            </p>
-          </div>
-          <div>
-            <p className="cap-label">How we begin</p>
-            <ol className="mt-5 space-y-3 text-[17px]">
-              <li>
-                <span
-                  className="font-[var(--font-display)] italic mr-2"
-                  style={{ color: "var(--color-sage-deep)" }}
-                >
-                  01
-                </span>
-                Free 15-minute consultation
-              </li>
-              <li>
-                <span
-                  className="font-[var(--font-display)] italic mr-2"
-                  style={{ color: "var(--color-sage-deep)" }}
-                >
-                  02
-                </span>
-                First session &mdash; understanding your context
-              </li>
-              <li>
-                <span
-                  className="font-[var(--font-display)] italic mr-2"
-                  style={{ color: "var(--color-sage-deep)" }}
-                >
-                  03
-                </span>
-                Ongoing sessions &mdash; insight and change
-              </li>
-            </ol>
-          </div>
+        <div className="mt-16 md:mt-20">
+          <Link href="/pathways" className="btn-link">
+            Read the pathways in depth <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </div>
       <hr className="hairline" />

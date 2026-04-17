@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
+import { SageBlob } from "@/components/illustrations";
 
 /**
  * HeroGentle — the room opens.
  *
  * Her exact copy. No word-by-word reveals, no billboard photo.
- * The visitor walks in. The cream is warm. Everything else recedes.
+ * The visitor walks in. The cream is warm. A dappled-light overlay drifts.
+ * Two sage blobs breathe slowly far behind.
  */
 export function HeroGentle() {
   return (
@@ -13,7 +15,23 @@ export function HeroGentle() {
       className="relative overflow-hidden"
       style={{ background: "var(--color-cream-warm)" }}
     >
-      <div className="mx-auto max-w-[var(--content-max)] px-6 md:px-10 pt-24 pb-24 md:pt-36 md:pb-36">
+      {/* Ambient depth — sage blobs drifting slowly behind everything */}
+      <div
+        aria-hidden="true"
+        className="absolute -top-20 -left-40 pointer-events-none blob-drift-1"
+      >
+        <SageBlob size={560} />
+      </div>
+      <div
+        aria-hidden="true"
+        className="absolute -bottom-32 -right-40 pointer-events-none blob-drift-2"
+      >
+        <SageBlob size={480} />
+      </div>
+      {/* Dappled light — radial-gradient overlay */}
+      <div className="dapple-light" aria-hidden="true" />
+
+      <div className="relative mx-auto max-w-[var(--content-max)] px-6 md:px-10 pt-24 pb-24 md:pt-36 md:pb-36">
         <div className="max-w-[860px]">
           <FadeIn>
             <p className="cap-label">Therapy with Pallavi Bhaskar</p>
