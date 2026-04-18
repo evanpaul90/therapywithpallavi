@@ -29,12 +29,22 @@ export function SiteNav() {
     <header className="border-b border-divider bg-cream sticky top-0 z-40 backdrop-blur-sm bg-cream/85">
       <div className="mx-auto max-w-[var(--content-max)] px-6 md:px-10">
         <div className="flex items-center justify-between h-[72px]">
-          <Link href="/" className="flex items-center gap-3 group shrink-0">
+          <Link
+            href="/"
+            aria-label="Therapy with Pallavi — home"
+            className="flex items-center gap-3 group shrink-0"
+          >
             <TreeEmblem size={32} alt="" />
-            <span className="font-[var(--font-display)] text-[18px] tracking-wide text-navy group-hover:opacity-80 transition-opacity hidden sm:inline">
+            <span
+              aria-hidden="true"
+              className="font-[var(--font-display)] text-[18px] tracking-wide text-navy group-hover:opacity-80 transition-opacity hidden sm:inline"
+            >
               Therapy with Pallavi
             </span>
-            <span className="font-[var(--font-display)] text-[18px] tracking-wide text-navy sm:hidden">
+            <span
+              aria-hidden="true"
+              className="font-[var(--font-display)] text-[18px] tracking-wide text-navy sm:hidden"
+            >
               Pallavi
             </span>
           </Link>

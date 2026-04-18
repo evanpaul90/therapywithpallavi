@@ -163,6 +163,7 @@ export default function PathwaysPage() {
                             fill
                             sizes="(max-width: 768px) 100vw, 480px"
                             className="object-cover"
+                            priority={i === 0}
                           />
                         </div>
                         <figcaption className="mt-4 text-[11px] editorial-eyebrow text-center md:text-left">

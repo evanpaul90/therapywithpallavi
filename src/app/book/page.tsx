@@ -184,10 +184,11 @@ export default function BookPage() {
             <p className="mt-4 text-[15px] leading-[1.7] text-muted">
               This practice is not a crisis service. If you are in immediate
               distress or at risk of harm, please contact emergency services or
-              a 24/7 helpline: <strong>iCall</strong> 9152987821 (Mon&ndash;Sat,
-              8am&ndash;10pm) &middot; <strong>Vandrevala Foundation</strong>{" "}
-              1860-2662-345 (24/7) &middot; <strong>AASRA</strong> 9820466726
-              (24/7).
+              a 24/7 helpline: <strong>iCall</strong>{" "}
+              9152 987 821 (Mon&ndash;Sat, 8am&ndash;10pm) &middot;{" "}
+              <strong>Vandrevala Foundation</strong>{" "}
+              1860 2662 345 (24/7) &middot; <strong>AASRA</strong>{" "}
+              98204 66726 (24/7).
             </p>
           </div>
         </FadeIn>

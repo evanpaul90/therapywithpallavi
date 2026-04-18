@@ -13,14 +13,14 @@ const INDIA_HELPLINES = [
   {
     name: "iCall (TISS)",
     detail: "Mon\u2013Sat, 8am\u201310pm \u00B7 multiple languages",
-    number: "9152987821",
+    number: "9152 987 821",
     href: "tel:+919152987821",
   },
   {
     name: "Vandrevala Foundation",
     detail: "24/7 \u00B7 free",
     number: "1860 2662 345",
-    href: "tel:+911860 2662 345",
+    href: "tel:+9118602662345",
   },
   {
     name: "AASRA",
