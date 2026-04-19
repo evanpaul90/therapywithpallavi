@@ -222,6 +222,46 @@ body {
   text-underline-offset: 4px;
 }
 
+/* ===== Journey flow cards ===== */
+
+.journey-card {
+  position: relative;
+  text-decoration: none;
+  background: transparent;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 320ms ease-out;
+}
+
+.journey-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid transparent;
+  transition: border-color 280ms ease-out, background 280ms ease-out;
+  pointer-events: none;
+}
+
+.journey-card:hover {
+  transform: translateY(-3px);
+  background: rgba(127, 184, 165, 0.06);
+}
+
+.journey-card:hover::after,
+.journey-card:focus-visible::after {
+  border-color: rgba(127, 184, 165, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-card,
+  .journey-card::after {
+    transition: none !important;
+  }
+  .journey-card:hover {
+    transform: none;
+  }
+}
+
 /* ===== Footer atoms ===== */
 
 .footer-link {

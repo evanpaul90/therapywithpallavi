@@ -320,7 +320,14 @@ type Step = {
   eyebrow: string;
   title: string;
   detail: string;
+  href: string;
+  external: boolean;
+  cta: string;
 };
+
+const WHATSAPP_URL = "https://wa.me/message/EIF2EASB2GEXI1";
+const CAL_URL = "https://cal.com/therapywithpallavi";
+const INTAKE_URL = "https://forms.gle/bj5sWBzWsdEcrVjg9";
 
 const STEPS: Step[] = [
   {
@@ -329,6 +336,9 @@ const STEPS: Step[] = [
     title: "WhatsApp or email me",
     detail:
       "Reach out for a free 15-minute consultation. No forms, no commitment \u2014 just a conversation.",
+    href: WHATSAPP_URL,
+    external: true,
+    cta: "Open WhatsApp",
   },
   {
     Icon: IconConversation,
@@ -336,6 +346,9 @@ const STEPS: Step[] = [
     title: "Get your queries addressed",
     detail:
       "We talk through what you\u2019re looking for, how therapy works, and whether this feels like the right fit.",
+    href: CAL_URL,
+    external: true,
+    cta: "Book the 15-min call",
   },
   {
     Icon: IconIntake,
@@ -343,6 +356,9 @@ const STEPS: Step[] = [
     title: "Fill the intake form",
     detail:
       "A simple, confidential form so I can understand your context before we meet.",
+    href: INTAKE_URL,
+    external: true,
+    cta: "Open the form",
   },
   {
     Icon: IconCalendar,
@@ -350,6 +366,9 @@ const STEPS: Step[] = [
     title: "Book your session",
     detail:
       "Choose a time that works for you. We begin, at a pace that feels right.",
+    href: CAL_URL,
+    external: true,
+    cta: "Pick a time",
   },
 ];
 
@@ -360,30 +379,46 @@ export function JourneyFlow() {
   return (
     <div className="relative">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 lg:gap-8">
-        {STEPS.map(({ Icon, eyebrow, title, detail }, i) => (
+        {STEPS.map(({ Icon, eyebrow, title, detail, href, external, cta }, i) => (
           <motion.div
             key={title}
-            className="relative text-center md:text-left"
+            className="relative"
             initial={animate ? { opacity: 0, y: 24 } : undefined}
             whileInView={animate ? { opacity: 1, y: 0 } : undefined}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, ease: "easeOut", delay: i * 0.15 }}
           >
-            <div className="flex md:justify-start justify-center">
-              <Icon animate={animate} />
-            </div>
-            <p
-              className="mt-6 editorial-eyebrow"
-              style={{ color: "var(--color-sage-deep)" }}
+            <a
+              href={href}
+              {...(external ? { target: "_blank", rel: "noopener" } : {})}
+              aria-label={`${title} \u2014 ${cta}`}
+              className="journey-card group block text-center md:text-left h-full p-5 md:p-6 rounded-lg"
             >
-              {eyebrow}
-            </p>
-            <h3 className="mt-3 font-[var(--font-display)] text-[22px] md:text-[24px] leading-snug text-navy">
-              {title}
-            </h3>
-            <p className="mt-3 text-[15px] md:text-[16px] leading-[1.65] text-muted max-w-[260px] md:max-w-none mx-auto md:mx-0">
-              {detail}
-            </p>
+              <div className="flex md:justify-start justify-center">
+                <Icon animate={animate} />
+              </div>
+              <p
+                className="mt-6 editorial-eyebrow"
+                style={{ color: "var(--color-sage-deep)" }}
+              >
+                {eyebrow}
+              </p>
+              <h3 className="mt-3 font-[var(--font-display)] text-[22px] md:text-[24px] leading-snug text-navy">
+                {title}
+              </h3>
+              <p className="mt-3 text-[15px] md:text-[16px] leading-[1.65] text-muted max-w-[260px] md:max-w-none mx-auto md:mx-0">
+                {detail}
+              </p>
+              <p
+                className="mt-5 text-[13px] tracking-wide inline-flex items-center gap-1.5 transition-transform group-hover:translate-x-0.5"
+                style={{ color: "var(--color-sage-deep)" }}
+              >
+                <span>{cta}</span>
+                <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+                  &rarr;
+                </span>
+              </p>
+            </a>
             {i < STEPS.length - 1 && (
               <Connector animate={animate} delay={i * 0.15 + 0.6} flip={i % 2 === 1} />
             )}

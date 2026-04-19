@@ -239,9 +239,9 @@ export function SiteFooter() {
             className="text-[12px] tracking-wide max-w-[520px]"
             style={{ color: "#8b8674" }}
           >
-            &copy; {new Date().getFullYear()} Therapy with Pallavi &middot;
-            Bangalore, India &middot; Confidential &amp; evidence-based
-            practice.
+            &copy; {new Date().getFullYear()}
+            {" "}Therapy with Pallavi &middot; Bangalore, India &middot;
+            {" "}Confidential &amp; evidence-based practice.
           </p>
           <p
             className="text-[12px] italic font-[var(--font-display)]"
