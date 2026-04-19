@@ -46,28 +46,20 @@ export function HeroGentle() {
 
             <FadeIn delay={0.15}>
               <h1 className="display-xl display-italic mt-8">
-                You deserve a space where you can feel safe &mdash; and begin to
-                move forward.
+                A space to understand yourself &mdash; and move forward with
+                clarity.
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.3}>
               <p className="lead mt-8 max-w-[560px]">
-                Trauma-informed, evidence-based therapy to help you understand
-                yourself more deeply, feel more grounded, and create meaningful
+                Compassionate, evidence-based therapy to help you navigate
+                challenges, build self-awareness, and create meaningful
                 change.
               </p>
             </FadeIn>
 
             <FadeIn delay={0.45}>
-              <p
-                className="mt-10 font-[var(--font-display)] italic text-[22px] md:text-[24px] text-navy leading-snug"
-              >
-                &ldquo;You don&rsquo;t need to be in crisis to reach out.&rdquo;
-              </p>
-            </FadeIn>
-
-            <FadeIn delay={0.6}>
               <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                 <Link href="/book" className="btn-primary">
                   Start with a free 15-minute consultation
@@ -96,17 +88,14 @@ export function HeroGentle() {
                   style={{ aspectRatio: "3/2" }}
                 >
                   <Image
-                    src="/assets/photography/chair-by-window.jpg"
-                    alt="An empty wooden chair beside a window with afternoon light on a wooden floor, a small vase with a single fern frond"
+                    src="/assets/photography/hero-therapy-room.jpg"
+                    alt="A quiet therapy room in warm afternoon light — a single wooden armchair, soft linen throw, and natural oak floor"
                     fill
                     sizes="(max-width: 768px) 100vw, 560px"
                     className="object-cover"
                     priority
                   />
                 </div>
-                <figcaption className="mt-4 text-center text-[11px] editorial-eyebrow">
-                  A chair by the window &middot; afternoon light
-                </figcaption>
               </figure>
             </FadeIn>
           </div>
@@ -130,11 +119,6 @@ export function HeroGentle() {
                   you&rsquo;re experiencing, and begin to move forward with
                   greater clarity and steadiness &mdash; at a pace that feels
                   right for you.
-                </p>
-                <p className="mt-5 text-[17px] leading-[1.7] text-muted">
-                  I&rsquo;m Pallavi Bhaskar, a Counsellor and Psychotherapist
-                  with 8+ years of professional experience, including 4+ years
-                  in therapeutic practice.
                 </p>
               </div>
 

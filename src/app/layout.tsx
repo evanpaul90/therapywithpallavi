@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { EB_Garamond, Inter } from "next/font/google";
+import { Fraunces } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
@@ -10,18 +11,21 @@ import { PaperTexture } from "@/components/paper-texture";
 import { CursorLeaf } from "@/components/cursor-leaf";
 import { NightMode } from "@/components/night-mode";
 
-const ebGaramond = EB_Garamond({
-  variable: "--font-eb-garamond",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["400", "500"],
   style: ["normal", "italic"],
+  axes: ["SOFT", "opsz"],
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+const glacial = localFont({
+  variable: "--font-glacial",
+  src: [
+    { path: "./fonts/GlacialIndifference-Regular.otf", weight: "400", style: "normal" },
+    { path: "./fonts/GlacialIndifference-Italic.otf", weight: "400", style: "italic" },
+    { path: "./fonts/GlacialIndifference-Bold.otf", weight: "700", style: "normal" },
+  ],
   display: "swap",
 });
 
@@ -134,7 +138,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ebGaramond.variable} ${inter.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${glacial.variable} h-full antialiased`}
     >
       <head>
         <script

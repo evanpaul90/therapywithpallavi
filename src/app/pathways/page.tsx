@@ -166,9 +166,6 @@ export default function PathwaysPage() {
                             priority={i === 0}
                           />
                         </div>
-                        <figcaption className="mt-4 text-[11px] editorial-eyebrow text-center md:text-left">
-                          {pathway.photoCaption}
-                        </figcaption>
                       </figure>
                     </FadeIn>
                   </div>

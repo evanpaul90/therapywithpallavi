@@ -38,9 +38,9 @@
   --background: var(--color-cream);
   --foreground: var(--color-ink);
 
-  /* Typography */
-  --font-display: var(--font-eb-garamond), Georgia, "Times New Roman", serif;
-  --font-body: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Typography — Fraunces (display serif, near-match to Alta) + Glacial Indifference (body, per Aunty's doc) */
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-glacial), system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Prose — reader-scale, tightened for letter-feel */
   --prose-max: 560px;
@@ -220,6 +220,73 @@ body {
   color: var(--color-navy);
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+/* ===== Footer atoms ===== */
+
+.footer-link {
+  position: relative;
+  text-decoration: none;
+  transition: color 180ms ease-out;
+}
+
+.footer-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer-link:hover::after,
+.footer-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.footer-contact {
+  text-decoration: none;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer-contact:hover {
+  transform: translateY(-2px);
+}
+
+.footer-icon-ring {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgba(127, 184, 165, 0.08);
+  border: 1px solid rgba(127, 184, 165, 0.28);
+  color: #d9d3c3;
+  transition: background 220ms ease-out, border-color 220ms ease-out,
+    color 220ms ease-out;
+}
+
+.footer-contact:hover .footer-icon-ring {
+  background: rgba(127, 184, 165, 0.18);
+  border-color: rgba(127, 184, 165, 0.55);
+  color: #f4efe4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-link::after,
+  .footer-contact,
+  .footer-icon-ring {
+    transition: none !important;
+  }
+  .footer-contact:hover {
+    transform: none;
+  }
 }
 
 ::selection {

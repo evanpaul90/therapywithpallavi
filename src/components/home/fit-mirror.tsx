@@ -114,9 +114,6 @@ export function FitMirror() {
                     className="object-cover"
                   />
                 </div>
-                <figcaption className="mt-4 text-center text-[11px] editorial-eyebrow">
-                  Tea has no hurry
-                </figcaption>
               </figure>
             </div>
           </div>

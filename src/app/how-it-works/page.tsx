@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
-import {
-  PottedPlant,
-  WindowWithLight,
-  Teacup,
-  WoodenChair,
-} from "@/components/illustrations";
+import { JourneyFlow } from "@/components/journey-flow";
+import { Teacup, WoodenChair } from "@/components/illustrations";
 
 export const metadata: Metadata = {
   title: "How therapy with Pallavi works \u2014 consultation, first session, ongoing",
@@ -28,137 +24,46 @@ export default function HowItWorksPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="display-xl mt-6 max-w-[860px]">
-              Slow, steady, and shaped around you.
+              From first message to first session.
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="lead mt-8 max-w-[620px]">
-              Therapy is not a transaction. It&rsquo;s a careful relationship
-              built in steps. Here&rsquo;s what to expect from the first click
-              to the work we do over time.
+              Therapy is not a transaction. It&rsquo;s a careful relationship,
+              built in steps. Here&rsquo;s what the journey looks like &mdash;
+              from the first message to our first session together.
             </p>
           </FadeIn>
         </div>
         <hr className="hairline" />
       </section>
 
-      {/* Three steps, each with its own illustration */}
+      {/* Animated 4-step journey — Aunty's spec, Dada's note: animated */}
       <section className="relative bg-cream">
         <div className="mx-auto max-w-[var(--content-max)] px-6 md:px-10 py-24 md:py-32">
-          <div className="space-y-32 md:space-y-40 max-w-[1040px]">
-            {/* Step 1 */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
-              <div className="md:col-span-5 order-2 md:order-1">
-                <FadeIn>
-                  <p
-                    className="cap-label"
-                    style={{ color: "var(--color-sage-deep)" }}
-                  >
-                    Step 01 &middot; before we meet
-                  </p>
-                </FadeIn>
-                <FadeIn delay={0.1}>
-                  <h2 className="display-m mt-5">
-                    The free 15-minute consultation.
-                  </h2>
-                </FadeIn>
-                <FadeIn delay={0.2}>
-                  <p className="mt-6 text-[18px] leading-[1.75]">
-                    A short video call to understand what you&rsquo;re looking
-                    for and see if working together feels right. No paperwork,
-                    no pressure, no commitment.
-                  </p>
-                </FadeIn>
-                <FadeIn delay={0.3}>
-                  <p className="mt-4 text-[17px] leading-[1.7] text-muted">
-                    You&rsquo;ll leave the consultation with clarity on what
-                    therapy with me would look like &mdash; and whether to take
-                    the next step.
-                  </p>
-                </FadeIn>
-              </div>
-              <div className="md:col-span-7 order-1 md:order-2 flex justify-center">
-                <FadeIn>
-                  <PottedPlant size={200} stage={1} />
-                </FadeIn>
-              </div>
-            </div>
+          <FadeIn>
+            <p className="editorial-eyebrow">Start your therapy journey</p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="display-m display-italic mt-5 max-w-[620px]">
+              Four small steps.
+            </h2>
+          </FadeIn>
 
-            {/* Step 2 */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
-              <div className="md:col-span-7 flex justify-center md:justify-start">
-                <FadeIn>
-                  <WindowWithLight size={200} />
-                </FadeIn>
-              </div>
-              <div className="md:col-span-5">
-                <FadeIn>
-                  <p
-                    className="cap-label"
-                    style={{ color: "var(--color-sage-deep)" }}
-                  >
-                    Step 02 &middot; our first session
-                  </p>
-                </FadeIn>
-                <FadeIn delay={0.1}>
-                  <h2 className="display-m mt-5">
-                    Understanding your context.
-                  </h2>
-                </FadeIn>
-                <FadeIn delay={0.2}>
-                  <p className="mt-6 text-[18px] leading-[1.75]">
-                    We slow down together. What brought you here, what
-                    you&rsquo;re carrying, what you&rsquo;d like to feel
-                    differently. I ask questions. You answer as you&rsquo;re
-                    ready.
-                  </p>
-                </FadeIn>
-                <FadeIn delay={0.3}>
-                  <p className="mt-4 text-[17px] leading-[1.7] text-muted">
-                    By the end we&rsquo;ll have a sense of the shape of the
-                    work &mdash; without pretending to have all the answers
-                    yet.
-                  </p>
-                </FadeIn>
-              </div>
-            </div>
+          <div className="mt-20 md:mt-24">
+            <JourneyFlow />
+          </div>
 
-            {/* Step 3 */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
-              <div className="md:col-span-5 order-2 md:order-1">
-                <FadeIn>
-                  <p
-                    className="cap-label"
-                    style={{ color: "var(--color-sage-deep)" }}
-                  >
-                    Step 03 &middot; ongoing
-                  </p>
-                </FadeIn>
-                <FadeIn delay={0.1}>
-                  <h2 className="display-m mt-5">
-                    The work, over time.
-                  </h2>
-                </FadeIn>
-                <FadeIn delay={0.2}>
-                  <p className="mt-6 text-[18px] leading-[1.75]">
-                    Weekly or fortnightly sessions. Reflective and practical.
-                    Insight and integration. Paced to you &mdash; and revisited
-                    as you change.
-                  </p>
-                </FadeIn>
-                <FadeIn delay={0.3}>
-                  <p className="mt-4 text-[17px] leading-[1.7] text-muted">
-                    You can take it one session at a time. There is no
-                    long-term commitment required, ever.
-                  </p>
-                </FadeIn>
-              </div>
-              <div className="md:col-span-7 order-1 md:order-2 flex justify-center">
-                <FadeIn>
-                  <PottedPlant size={200} stage={3} />
-                </FadeIn>
-              </div>
-            </div>
+          {/* CTA directly under the flow (per Aunty's doc) */}
+          <div className="mt-24 md:mt-32 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10">
+            <Link href="/book" className="btn-primary">
+              Start with a free 15-minute consultation
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+            <p className="text-[14px] text-muted max-w-[320px]">
+              No pressure &mdash; just a conversation to see if this feels
+              right.
+            </p>
           </div>
         </div>
         <hr className="hairline" />

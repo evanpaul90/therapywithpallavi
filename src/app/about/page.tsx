@@ -5,10 +5,17 @@ import { FadeIn } from "@/components/fade-in";
 import { TreeGrove } from "@/components/illustrations";
 
 export const metadata: Metadata = {
-  title: "About \u2014 Pallavi Bhaskar, Trauma-informed Psychotherapist",
+  title: "About Me \u2014 Pallavi Bhaskar, Counsellor and Psychotherapist",
   description:
-    "Pallavi Bhaskar is a trauma-informed Counsellor and Psychotherapist with 8+ years of professional experience, including 4+ years in therapeutic practice. Online sessions, India and globally.",
+    "Pallavi Bhaskar \u2014 MA Psychology, PGDM. Trauma-trained, neurodiversity-affirmative, and trained in IFS, CBT, NLP, and the Gottman Method. Online therapy across India and internationally.",
 };
+
+const CREDENTIALS = [
+  "Trauma Therapy \u2014 Trained in Internal Family Systems (IFS)",
+  "CBT Practitioner",
+  "NLP Practitioner & Level 1 Life Coach",
+  "QPR Trained Crisis Counsellor",
+];
 
 export default function AboutPage() {
   return (
@@ -16,7 +23,6 @@ export default function AboutPage() {
       className="relative overflow-hidden"
       style={{ background: "var(--color-clay-pale)" }}
     >
-      {/* Watercolor washes */}
       <div
         aria-hidden="true"
         className="watercolor-wash"
@@ -29,39 +35,30 @@ export default function AboutPage() {
       />
 
       <div className="relative mx-auto max-w-[var(--content-max)] px-6 md:px-12 py-24 md:py-36">
-        {/* Hero: italic headline left + portrait with tree-grove behind right */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-start">
-          <div className="md:col-span-8">
-            <FadeIn>
-              <p className="editorial-eyebrow">About</p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h1 className="display-xl display-italic mt-8 max-w-[820px]">
-                The patterns you struggle with are not random. They make sense
-                when understood with compassion and context.
-              </h1>
-            </FadeIn>
-          </div>
+        {/* Credentials card — photo + name + qualifications (per Aunty's img7) */}
+        <FadeIn>
+          <p className="editorial-eyebrow">About Me</p>
+        </FadeIn>
 
-          <div className="md:col-span-4 relative flex md:justify-end">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-center">
+          <div className="md:col-span-4">
             <FadeIn>
-              <div className="relative md:sticky md:top-28">
-                {/* Tree grove behind portrait */}
+              <div className="relative">
                 <div
                   aria-hidden="true"
-                  className="absolute -top-6 -right-8 opacity-50 pointer-events-none hidden md:block"
+                  className="absolute -top-8 -right-10 opacity-40 pointer-events-none hidden md:block"
                 >
                   <TreeGrove size={220} />
                 </div>
                 <div
-                  className="relative w-[240px] overflow-hidden"
+                  className="relative w-full max-w-[320px] overflow-hidden"
                   style={{ aspectRatio: "3/4" }}
                 >
                   <Image
                     src="/assets/pallavi-portrait.png"
                     alt="Pallavi Bhaskar, Counsellor and Psychotherapist"
                     fill
-                    sizes="240px"
+                    sizes="(max-width: 768px) 100vw, 320px"
                     className="object-cover"
                     priority
                   />
@@ -69,93 +66,192 @@ export default function AboutPage() {
               </div>
             </FadeIn>
           </div>
+
+          <div className="md:col-span-8">
+            <FadeIn delay={0.1}>
+              <h1 className="display-xl display-italic">Pallavi Bhaskar</h1>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="mt-4 text-[18px] md:text-[20px] font-semibold tracking-wide text-navy">
+                MA Psychology &middot; PGDM
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.3}>
+              <ul className="mt-8 space-y-3 text-[17px] leading-[1.7] max-w-[560px]">
+                {CREDENTIALS.map((c) => (
+                  <li key={c} className="flex gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="mt-[10px] inline-block w-1.5 h-1.5 shrink-0"
+                      style={{ background: "var(--color-sage-deep)" }}
+                    />
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ul>
+            </FadeIn>
+          </div>
         </div>
 
-        {/* Letter prose with drop cap + marginalia */}
-        <div className="mt-24 md:mt-32 relative">
-          <div className="mx-auto max-w-[620px] relative">
-            <FadeIn>
-              <div className="text-ink">
-                <p className="drop-cap text-[20px] leading-[1.85]">
-                  I&rsquo;m Pallavi Bhaskar, a trauma-informed Counsellor and
-                  Psychotherapist working with clients across India and
-                  globally.
-                </p>
-              </div>
-            </FadeIn>
+        {/* Long-form — her doc, gospel */}
+        <div className="mt-24 md:mt-32 max-w-[680px] mx-auto">
+          <FadeIn>
+            <h2 className="display-m display-italic">My Background &amp; Training</h2>
+            <p className="mt-6 text-[19px] leading-[1.85]">
+              I hold a Master&rsquo;s degree in Clinical Psychology and am
+              trained in multiple evidence-based approaches, including Internal
+              Family Systems (IFS), Cognitive Behavioural Therapy (CBT),
+              Neuro-Linguistic Programming (NLP), and the Gottman Method.
+            </p>
+            <p className="mt-5 text-[19px] leading-[1.85]">
+              I am trauma-trained, neurodiversity-affirmative, and follow a
+              strength-based approach, which means:
+            </p>
+            <ul className="mt-5 space-y-2 text-[18px] leading-[1.75] pl-6">
+              <li>We move at a pace that feels safe and respectful</li>
+              <li>Your experiences are understood in context, not judged</li>
+              <li>
+                We build on your existing strengths while working through
+                challenges
+              </li>
+            </ul>
+          </FadeIn>
 
-            <FadeIn delay={0.1}>
-              <p className="mt-6 text-[19px] leading-[1.8] text-ink">
-                I believe the patterns you struggle with are not random &mdash;
-                they make sense when understood with compassion and context.
-              </p>
-            </FadeIn>
+          <FadeIn delay={0.05}>
+            <h2 className="display-m display-italic mt-16">Experience</h2>
+            <p className="mt-6 text-[19px] leading-[1.85]">
+              I bring over 8 years of professional experience, including 4+
+              years in therapeutic practice, and have worked with 200+ clients.
+              My work spans individuals across different life stages (20 to 50
+              years of age) &mdash; from young adults navigating transitions to
+              working professionals managing stress, relationships, and
+              personal growth.
+            </p>
+            <p className="mt-5 text-[19px] leading-[1.85]">
+              Before moving fully into therapy, I spent time in the corporate
+              space &mdash; an experience that continues to inform my
+              understanding of workplace stress, burnout, and the emotional
+              demands of high-functioning environments.
+            </p>
+            <p className="mt-5 text-[19px] leading-[1.85]">
+              I have also worked with organisations through workshops and
+              consultations focused on mental health, emotional wellbeing, and
+              workplace resilience.
+            </p>
+          </FadeIn>
 
-            <FadeIn delay={0.15}>
-              <p className="mt-6 text-[19px] leading-[1.8] text-ink">
-                My approach is both reflective and practical &mdash; we begin
-                with understanding, and gradually move toward meaningful
-                change.
-              </p>
-            </FadeIn>
+          <FadeIn delay={0.05}>
+            <h2 className="display-m display-italic mt-16">How I Work</h2>
+            <p className="mt-6 text-[19px] leading-[1.85]">
+              I offer a confidential space that is warm, non-judgmental, and
+              grounded &mdash; where you can slow down, feel understood, and
+              begin to make sense of your experiences.
+            </p>
+            <p className="mt-5 text-[19px] leading-[1.85]">
+              My work is both reflective and practical. We start by
+              understanding your patterns and inner world, and gradually build
+              ways of responding that support clarity, stability, and
+              meaningful change.
+            </p>
+          </FadeIn>
 
-            <FadeIn delay={0.2}>
-              <p className="mt-6 text-[19px] leading-[1.8] text-ink">
-                Clients often experience therapy with me as a space that is
-                warm, open, and non-judgmental &mdash; while also offering
-                direction and clarity.
-              </p>
-            </FadeIn>
+          <FadeIn delay={0.05}>
+            <h2 className="display-m display-italic mt-16">What I Help With</h2>
+            <p className="mt-6 text-[19px] leading-[1.85]">
+              I work with adults navigating:
+            </p>
+            <ul className="mt-5 space-y-2 text-[18px] leading-[1.75] pl-6">
+              <li>Trauma &mdash; childhood, adulthood</li>
+              <li>Anxiety, overthinking, and emotional overwhelm</li>
+              <li>Low self-esteem and self-doubt</li>
+              <li>Relationship challenges and boundary-setting</li>
+              <li>Burnout and workplace stress</li>
+              <li>Grief, transitions, and difficult life phases</li>
+              <li>Patterns shaped by past experiences</li>
+            </ul>
+            <p className="mt-6 text-[19px] leading-[1.85]">
+              While these concerns may appear different, they are often
+              connected through deeper emotional patterns.
+            </p>
+            <p className="mt-5 text-[19px] leading-[1.85]">
+              My work is trauma-informed, which means we approach these
+              patterns with care, and at a pace that feels manageable. Clients
+              often begin to experience greater clarity, emotional steadiness,
+              and a deeper understanding of themselves over time.
+            </p>
+          </FadeIn>
 
-            {/* Marginalia — sage italic on the right margin */}
-            <div className="hidden xl:block">
-              <p
-                className="marginalia marginalia--right"
-                style={{ top: "4rem" }}
-              >
-                Finally, someone who gets it.
+          <FadeIn delay={0.05}>
+            <h2 className="display-m display-italic mt-16">
+              Working Across Contexts
+            </h2>
+            <p className="mt-6 text-[19px] leading-[1.85]">
+              I work with clients across India and internationally, including
+              NRIs and expats.
+            </p>
+            <p className="mt-5 text-[19px] leading-[1.85]">
+              Many of the individuals I support are navigating the
+              intersection of:
+            </p>
+            <ul className="mt-5 space-y-2 text-[18px] leading-[1.75] pl-6">
+              <li>Personal needs and family expectations</li>
+              <li>Cultural identity and independence</li>
+              <li>Belonging across different environments</li>
+            </ul>
+            <p className="mt-6 text-[19px] leading-[1.85]">
+              Therapy becomes a space to explore these layers with nuance,
+              while staying grounded in your individual experience.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.05}>
+            <h2 className="display-m display-italic mt-16">Therapy Approach</h2>
+            <p className="mt-6 text-[19px] leading-[1.85]">
+              My approach is integrative, trauma-trained, and person-centred.
+              This means:
+            </p>
+            <ul className="mt-5 space-y-2 text-[18px] leading-[1.75] pl-6">
+              <li>We move at a pace that feels right for you</li>
+              <li>Each session is tailored to your needs</li>
+              <li>
+                We focus on understanding patterns before trying to change
+                them
+              </li>
+              <li>We combine insight with practical tools over time</li>
+              <li>The process is collaborative &mdash; not prescriptive</li>
+            </ul>
+            <p className="mt-6 text-[19px] leading-[1.85]">
+              You won&rsquo;t be rushed, and you won&rsquo;t be pushed beyond
+              what you&rsquo;re ready for. At the same time, I will gently
+              guide you and support you in staying accountable to your own
+              growth.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.05}>
+            <div
+              className="mt-20 p-8 md:p-10 text-[16px] leading-[1.75]"
+              style={{
+                background: "var(--color-surface)",
+                borderLeft: "2px solid var(--color-sage-deep)",
+                color: "var(--color-muted)",
+              }}
+            >
+              <p>
+                <span className="font-semibold text-navy">Note:</span> I offer
+                counselling and psychotherapy services focused on emotional
+                wellbeing and personal growth. I am not a psychiatrist and do
+                not prescribe medication. For clinical diagnosis, medication,
+                or severe mental health concerns, I may recommend consulting a
+                clinical psychologist or psychiatrist, and I&rsquo;m happy to
+                guide you toward appropriate support if needed.
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Two-column context + training */}
-        <div className="mt-28 md:mt-36 pt-12 border-t border-divider max-w-[960px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
-            <FadeIn>
-              <div>
-                <p className="editorial-eyebrow">Corporate context</p>
-                <p className="mt-6 text-[17px] leading-[1.75] text-ink">
-                  Before moving fully into therapeutic practice, I spent time
-                  in the corporate space. This helps me understand workplace
-                  stress, burnout, and the emotional demands of high-functioning
-                  environments. I have also facilitated corporate workshops on
-                  mental health awareness, psychological first aid, and
-                  burnout prevention.
-                </p>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <div>
-                <p className="editorial-eyebrow">Training</p>
-                <ul
-                  className="mt-6 space-y-3 font-[var(--font-display)] italic text-[19px] leading-[1.5]"
-                  style={{ color: "var(--color-sage-deep)" }}
-                >
-                  <li>MA Clinical Psychology</li>
-                  <li>Cognitive Behaviour Therapy (CBT)</li>
-                  <li>Internal Family Systems (IFS) &mdash; trauma</li>
-                  <li>Neuro-linguistic Programming (NLP)</li>
-                  <li>QPR Crisis Counsellor</li>
-                  <li>8+ years professional &middot; 4+ years therapeutic</li>
-                </ul>
-              </div>
-            </FadeIn>
-          </div>
+          </FadeIn>
         </div>
 
         {/* CTA */}
-        <FadeIn delay={0.2}>
+        <FadeIn delay={0.1}>
           <div
             className="mt-24 md:mt-32 py-20 md:py-24 px-6 md:px-10 text-center relative overflow-hidden"
             style={{ background: "var(--color-surface)" }}

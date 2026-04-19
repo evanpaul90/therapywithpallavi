@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
 
 export const metadata: Metadata = {
   title: "Crisis support \u2014 helplines and immediate help",
   description:
-    "If you are in immediate distress or at risk of harm, this practice is not the right door. Here are crisis helplines in India and internationally.",
+    "If you or someone you love needs immediate support, please reach one of these crisis helplines in India or internationally.",
   robots: { index: true, follow: true },
 };
 
@@ -56,14 +55,15 @@ export default function CrisisSupportPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1 className="display-xl mt-6 max-w-[820px]">
-              If you are in immediate distress, this is not the right door.
+              Help that&rsquo;s available right now.
             </h1>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="lead mt-8 max-w-[640px]">
-              This practice is not a crisis service. If you or someone you
-              love is at risk of harm, please reach the helplines below or
-              emergency services. Real people will answer.
+              If you or someone you love is at risk of harm, please reach one
+              of the helplines below, or your local emergency number. These
+              lines are staffed by trained counsellors &mdash; free,
+              confidential, and ready to listen.
             </p>
           </FadeIn>
         </div>
@@ -168,40 +168,6 @@ export default function CrisisSupportPage() {
         <hr className="hairline" />
       </section>
 
-      {/* Not in crisis? */}
-      <section
-        className="relative"
-        style={{ background: "var(--color-cream-warm)" }}
-      >
-        <div className="mx-auto max-w-[var(--content-max)] px-6 md:px-10 py-20 md:py-28">
-          <div className="max-w-[720px]">
-            <FadeIn>
-              <p className="cap-label">Not a crisis, but still heavy?</p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <h2 className="display-l mt-6">
-                You don&rsquo;t need to be in crisis to reach out.
-              </h2>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <p className="mt-6 text-[18px] leading-[1.75] max-w-[600px]">
-                Therapy is for the quieter kinds of difficulty too &mdash; the
-                kind that doesn&rsquo;t show up in an emergency room but is
-                still real. If that&rsquo;s where you are, start with a free
-                15-minute conversation.
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <div className="mt-10">
-                <Link href="/book" className="btn-primary">
-                  Start with a free 15-minute consultation
-                  <span aria-hidden="true">&rarr;</span>
-                </Link>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
